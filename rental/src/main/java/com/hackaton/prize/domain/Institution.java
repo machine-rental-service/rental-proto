@@ -18,7 +18,9 @@ public class Institution {
 
     private String phoneNumber;
 
-    private  String address;
+    private String address;
+    
+    private String product; //생활공구 또는 농기계
 
     private int tractor; //트랙터
 
