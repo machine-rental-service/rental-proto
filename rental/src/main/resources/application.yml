@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   
 spring:
   mvc:
@@ -8,9 +8,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3307/world?characterEncoding=UTF-8&serverTimezone=UTC"
+    url: "jdbc:mysql://localhost:3306/rental?characterEncoding=UTF-8&serverTimezone=UTC"
     username: root
-    password: 1234
+    password: root
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:

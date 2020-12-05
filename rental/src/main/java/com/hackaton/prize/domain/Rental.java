@@ -1,6 +1,7 @@
 package com.hackaton.prize.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 @Entity
+@Data
 @Table(name = "rental")
 public class Rental {
 
