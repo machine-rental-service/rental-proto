@@ -1,10 +1,10 @@
 package com.hackaton.prize.infrastructure.repository;
 
-import com.hackaton.prize.domain.Order;
+import com.hackaton.prize.domain.Rental;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface OrderRepository extends JpaRepository<Order, Long> {
+public interface RentalRepository extends JpaRepository<Rental, Long> {
 
 }
