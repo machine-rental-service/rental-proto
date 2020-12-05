@@ -77,8 +77,8 @@
 			<c:if test="${rental.status eq '신청 대기'}">
 				<tr class='container text-center my-4 '>
 					<td></td>
-					<td>
-						<form action="../updateStatus" method="post">
+					<td class="row">
+						<form action="/admin/updateStatus" method="post">
 							<input type="hidden" name="id" value="${rental.id}">
 							<input type="hidden" name="status" value="신청 승인">
 							<button class="btn btn-primary btn-lg" type="submit">승인</button>
@@ -92,18 +92,17 @@
 	</div>
 
 
-	<div class='container text-center' id="rejectDiv">
-
+	<div class='container text-center' <c:if test="${rental.status ne '신청 반려'}">id="rejectDiv"</c:if>>
 		<hr />
 		<div>
 			<h3 class="text-center my-4">반려 사유</h3>
 		</div>
 
-		<form class='row' action="../updateStatus" method="post">
-			¿<textarea class="col-10" rows="4" name="rentalDetail/staffComment" <c:if test="${rental.status ne '신청 대기'}">disabled="disabled"</c:if>>${rental.rentalDetail.staffComment}</textarea>
+		<form class='row' action="/admin/updateStatus" method="post">
+			<textarea class="col-10" rows="4" >${rental.rentalDetail.staffComment}</textarea>
 			<input type="hidden" name="id" value="${rental.id}">
 			<input type="hidden" name="status" value="신청 반려">
-			<button class="btn btn-dark btn-lg" type="submit">최종 반려</button>
+			<button class="btn btn-dark btn-lg" type="submit">반려 사유 수정</button>
 		</form>
 	</div>
 
@@ -113,8 +112,9 @@
 <%@ include file="footer.jsp"%>
 
 <script>
+	
 	$("#rejectDiv").hide();
-
+	
 	$("#rejectBtn").click(function() {
 		$("#rejectDiv").show();
 	});

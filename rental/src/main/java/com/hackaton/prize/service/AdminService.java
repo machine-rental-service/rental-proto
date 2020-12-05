@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.hackaton.prize.domain.Rental;
+import com.hackaton.prize.infrastructure.repository.RentalDetailRepository;
 import com.hackaton.prize.infrastructure.repository.RentalRepository;
 
 import lombok.AllArgsConstructor;
@@ -61,11 +62,6 @@ public class AdminService {
 		return rentalWrapper.get();
 	}
 
-	public void updateStatus() {
-		// TODO Auto-generated method stub
-
-	}
-
 	public List<Rental> searchRental(String keyType, String[] keyword) {
 		List<Rental> rentalList = new ArrayList<>();
 		if (keyType.equals("lesseeName")) {
@@ -80,9 +76,8 @@ public class AdminService {
 		return rentalList;
 	}
 
-	public Long updateStatus(Rental rental) {
-		return rentalRepository.save(rental).getId();
-
+	public void updateStatus(Rental rental) {
+		rentalRepository.save(rental);
 	}
 
 }
