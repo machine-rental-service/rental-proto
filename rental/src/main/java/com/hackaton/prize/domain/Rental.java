@@ -21,6 +21,10 @@ public class Rental {
 
     private String lesseeName;
 
+    private String lesseeBirthday;
+
+    private String lesseeEmail;
+
     private String lesseePhoneNumber;
 
     private String lesseeAddress;
