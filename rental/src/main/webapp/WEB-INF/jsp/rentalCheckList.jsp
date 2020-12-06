@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ page import="com.hackaton.prize.domain.Rental" %>
 <%@ page import="java.util.List" %>
@@ -34,7 +35,30 @@
         <td scope="row"><%=myRentalList.get(i).getId()%></td>
         <td><%=myRentalList.get(i).getId()%></td>
         <td><%=myRentalList.get(i).getLocalInstitution()%></td>
-        <td><%=myRentalList.get(i).getRentalDetail()%></td>
+        <td><c:if test="${myRentalList.get(i).rentalDetail.tractor>0}">
+            트랙터 ${myRentalList.get(i).rentalDetail.tractor}
+        </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.cultivator>0}">
+                경운기 ${myRentalList.get(i).rentalDetail.cultivator}
+            </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.farmMaster>0}">
+                관리기 ${myRentalList.get(i).rentalDetail.farmMaster}
+            </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.undergroundCropExtractor>0}">
+                땅속작물수확기 ${myRentalList.get(i).rentalDetail.undergroundCropExtractor}
+            </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.thresher>0}">
+                탈곡기 ${myRentalList.get(i).rentalDetail.thresher}
+            </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.sower>0}">
+                자주형 종파기 ${myRentalList.get(i).rentalDetail.sower}
+            </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.ricePlantingMachine>0}">
+                이앙 작업기 ${myRentalList.get(i).rentalDetail.ricePlantingMachine}
+            </c:if>
+            <c:if test="${myRentalList.get(i).rentalDetail.riceHarvester>0}">
+                벼 수확기 ${myRentalList.get(i).rentalDetail.riceHarvester}
+            </c:if></td>
         <td><%=myRentalList.get(i).getLesseeName()%></td>
         <td><%=myRentalList.get(i).getApplied()%></td>
         <td><%=myRentalList.get(i).getStatus()%></td>
