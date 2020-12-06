@@ -2,7 +2,6 @@
 <%@ page import="com.hackaton.prize.domain.Rental" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.LinkedList" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -14,7 +13,8 @@
     <title>대여 승인 목록</title>
 </head>
 <body>
-<table class="table">
+<div class="table-responsive">
+<table class="table table-bordered table-hover">
     <thead>
     <tr>
         <th scope="col">연번</th>
@@ -30,17 +30,18 @@
     <% List<Rental> myRentalList=(List<Rental>)request.getAttribute("myRentalList");
         for(int i=0; i<myRentalList.size(); i++){
     %>
-    <tr>
-        <th scope="row"><%=myRentalList.get(i).getId()%></th>
-        <td><%=myRentalList.get(i).getApplied()%></td>
+    <tr onclick="location.href='rentalCheckDetail/<%=myRentalList.get(i).getId()%>'">
+        <td scope="row"><%=myRentalList.get(i).getId()%></td>
+        <td><%=myRentalList.get(i).getId()%></td>
         <td><%=myRentalList.get(i).getLocalInstitution()%></td>
         <td><%=myRentalList.get(i).getRentalDetail()%></td>
         <td><%=myRentalList.get(i).getLesseeName()%></td>
-        <td><%=myRentalList.get(i).getStarted()%></td>
+        <td><%=myRentalList.get(i).getApplied()%></td>
         <td><%=myRentalList.get(i).getStatus()%></td>
     </tr>
     <% } %>
     </tbody>
 </table>
+</div>
 </body>
 </html>
