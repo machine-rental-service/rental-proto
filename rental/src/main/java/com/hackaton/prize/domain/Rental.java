@@ -23,8 +23,12 @@ public class Rental {
 
 	private String lesseeName;
 
-	private String lesseeBirthday;
+  private String lesseeBirthday; //생년월일 YYMMDD
 
+  private String lesseeEmail;
+
+  private String lesseePhoneNumber;
+  
 	private String lesseeEmail; // 대여자 이메일
 
 	private String lesseePhoneNumber;
