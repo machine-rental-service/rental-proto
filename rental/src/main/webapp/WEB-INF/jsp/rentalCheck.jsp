@@ -13,9 +13,7 @@
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card card-signin flex-row my-5">
-                <div class="card-img-left d-none d-md-flex">
-                    <!-- Background image for card set in CSS! -->
-                </div>
+
                 <div class="card-body">
                     <h5 class="card-title text-center">내 대여 현황 조회</h5>
 

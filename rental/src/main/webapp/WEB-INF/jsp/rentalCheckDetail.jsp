@@ -13,106 +13,112 @@
     <title>대여 상세 조회</title>
 </head>
 <body>
-<div>
-    <table class="table table-bordered">
-        <tbody>
-        <% Rental rental = (Rental) request.getAttribute("rental"); %>
-        <tr>
-            <td>대여물품</td>
-            <td><c:if test="${rental.rentalDetail.tractor>0}">
-                트랙터 ${rental.rentalDetail.tractor}
-            </c:if>
-                <c:if test="${rental.rentalDetail.cultivator>0}">
-                    경운기 ${rental.rentalDetail.cultivator}
-                </c:if>
-                <c:if test="${rental.rentalDetail.farmMaster>0}">
-                    관리기 ${rental.rentalDetail.farmMaster}
-                </c:if>
-                <c:if test="${rental.rentalDetail.undergroundCropExtractor>0}">
-                    땅속작물수확기 ${rental.rentalDetail.undergroundCropExtractor}
-                </c:if>
-                <c:if test="${rental.rentalDetail.thresher>0}">
-                    탈곡기 ${rental.rentalDetail.thresher}
-                </c:if>
-                <c:if test="${rental.rentalDetail.sower>0}">
-                    자주형 종파기 ${rental.rentalDetail.sower}
-                </c:if>
-                <c:if test="${rental.rentalDetail.ricePlantingMachine>0}">
-                    이앙 작업기 ${rental.rentalDetail.ricePlantingMachine}
-                </c:if>
-                <c:if test="${rental.rentalDetail.riceHarvester>0}">
-                    벼 수확기 ${rental.rentalDetail.riceHarvester}
-                </c:if></td>
-        </tr>
-        <tr>
-            <td>신청자 이름</td>
-            <td><%=rental.getLesseeName()%>
-            </td>
-        </tr>
-        <tr>
-            <td>주소</td>
-            <td><%=rental.getLesseeAddress()%>
-            </td>
-        </tr>
-        <tr>
-            <td>전화번호</td>
-            <td><%=rental.getLesseePhoneNumber()%>
-            </td>
-        </tr>
-        <tr>
-            <td>접수일자</td>
-            <td><%=rental.getApplied()%>
-            </td>
-        </tr>
-        <tr>
-            <td>상태</td>
-            <td><%=rental.getApplied()%>
-            </td>
-        </tr>
-        <tr>
-            <td>희망 방문수령일</td>
-            <td><%=rental.getStarted()%>
-            </td>
-        </tr>
-        <tr>
-            <td>반납(예정)일</td>
-            <td><%=rental.getDeadline()%>
-            </td>
-        </tr>
-        <tr>
-            <td>대여 일수</td>
-            <td>3일.. ?(deadline-start)</td>
-        </tr>
-        <tr>
-            <td>대여소</td>
-            <td><%=rental.getLocalInstitution()%>
-            </td>
-        </tr>
-        <tr>
-            <td>대여금액</td>
-            <td>30000원(금액필요)</td>
-        </tr>
-        </tbody>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-10 col-xl-9 mx-auto">
+            <div class="card" style="margin-top: 30px">
+                <div class="card-body table-responsive">
+                    <h5 class="card-title text-center">목록 상세보기</h5>
+                    <table class="table table-bordered" align="center">
+                        <tbody align="center">
+                        <% Rental rental = (Rental) request.getAttribute("rental"); %>
+                        <tr>
+                            <td>대여물품</td>
+                            <td><% String rentalequip = "";
+                                if (rental.getRentalDetail().getTractor() > 0) {
+                                    rentalequip += "트랙터 " + rental.getRentalDetail().getTractor() + " / ";
+                                }
+                                if (rental.getRentalDetail().getCultivator() > 0) {
+                                    rentalequip += "경운기 " + rental.getRentalDetail().getCultivator() + " / ";
+                                }
+                                if (rental.getRentalDetail().getFarmMaster() > 0) {
+                                    rentalequip += "관리기 " + rental.getRentalDetail().getFarmMaster() + " / ";
+                                }
+                                if (rental.getRentalDetail().getUndergroundCropExtractor() > 0) {
+                                    rentalequip += "땅속작물수확기 " + rental.getRentalDetail().getUndergroundCropExtractor() + " / ";
+                                }
+                                if (rental.getRentalDetail().getThresher() > 0) {
+                                    rentalequip += "탈곡기 " + rental.getRentalDetail().getThresher() + " / ";
+                                }
+                                if (rental.getRentalDetail().getSower() > 0) {
+                                    rentalequip += "자주형 종파기 " + rental.getRentalDetail().getSower() + " / ";
+                                }
+                                if (rental.getRentalDetail().getRicePlantingMachine() > 0) {
+                                    rentalequip += "이앙 작업기 " + rental.getRentalDetail().getRicePlantingMachine() + " / ";
+                                }
+                                if (rental.getRentalDetail().getRiceHarvester() > 0) {
+                                    rentalequip += "벼 수확기 " + rental.getRentalDetail().getRiceHarvester() + " / ";
+                                }
+                            %>
+                                <%=rentalequip%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신청자 이름</td>
+                            <td><%=rental.getLesseeName()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>주소</td>
+                            <td><%=rental.getLesseeAddress()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>전화번호</td>
+                            <td><%=rental.getLesseePhoneNumber()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>접수일자</td>
+                            <td><%=rental.getApplied()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>상태</td>
+                            <td><%=rental.getApplied()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>희망 방문수령일</td>
+                            <td><%=rental.getStarted()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>반납(예정)일</td>
+                            <td><%=rental.getDeadline()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>대여 일수</td>
+                            <td>3일.. ?(deadline-start)</td>
+                        </tr>
+                        <tr>
+                            <td>대여소</td>
+                            <td><%=rental.getLocalInstitution()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>대여금액</td>
+                            <td>30000원(금액필요)</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                비고사항
+                            </td>
+                            <td>
+                                <%=rental.getRentalDetail().getStaffComment()%>
+                            </td>
+                        </tr>
 
-    </table>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-<div>
-    <table class="table table-bordered">
-        <thead>
-        <tr>
-            <td>
-            비고사항
-            </td>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <td>
-                <%=rental.getRentalDetail().getStaffComment()%>
-            </td>
-        </tr>
-        </tbody>
-    </table>
+</div>
 </div>
 </body>
 </html>
