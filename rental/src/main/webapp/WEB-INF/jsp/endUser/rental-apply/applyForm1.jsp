@@ -4,30 +4,26 @@
 <%--<link rel="stylesheet" href="css/import.css" media="all">--%>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-<%--<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>--%>
 <script type="text/javaScript" src="http://code.jquery.com/jquery-latest.js">
 
-    /**
-     * document ready
-     */
-    $(function(){
 
-        $(this).prop("title", $(".page-title-area > .tit").text()+" | <spring:message code='system.title'/>");
+/**
+ * document ready
+ */
+$(function(){
 
-        //메뉴 선택 스타일 삭제
-        fn_refreshMenuSelectStyle();
+    $(this).prop("title", $(".page-title-area > .tit").text()+" | <spring:message code='system.title'/>");
 
-        //필수입력항목 미입력시 안내 메세지 숨김처리
-        $(".input-warning").hide();
+    //필수입력항목 미입력시 안내 메세지 숨김처리
+    $(".input-warning").hide();
 
-        //결과확인 div 숨김처리
-        $(".box-result").hide();
+    //결과확인 div 숨김처리
+    $(".box-result").hide();
 
-    });
+});
 
 </script>
-<form:form name="userInfoVO" commandName="userInfoVO" onSubmit="return false;">
+<form action="step1" method="POST">
     <!-- page-title-area -->
     <div class="page-title-area">
         <h2 class="tit just-pc">생활공구/농기계 대여신청</h2>
@@ -48,7 +44,7 @@
 
         <!-- 기본정보 입력 -->
         <p class="text-area">기본정보 입력</p>
-        <p class="float-r req-info"><span class="req">*</span>표시는 필수 입력항목입니다.</p>
+        <p class="float-r req-info"><span class="req">*</span>필수 입력항목</p>
 
         <div id="inputTable" class="row-table">
             <p class="tit-hide">이름, 생년월일, 연락처, 이메일주소 입력</p>
@@ -65,7 +61,7 @@
                     </th>
                     <td>
                         <div class="input-ex-text w300px">
-                            <input type="text" title="이름" placeholder="ex) 김빌림" id="mberNm" name="mberNm" class="input-text w340px" onkeyup="fn_inputKey('4', this);" maxlength="11">
+                            <input type="text" title="이름" placeholder="ex) 김빌림" id="mberNm" name="lesseeName" class="input-text w340px" onkeyup="fn_inputKey('4', this);" maxlength="11">
                             <div class="input-util">
                                 <p class="input-warning">이름을 입력해주세요</p>
                             </div>
@@ -78,8 +74,8 @@
                     </th>
                     <td>
                         <div class="input-ex-text w300px">
-                            <input type="text" title="생년월일 입력" placeholder="" id="applcntBrthdy" name="applcntBrthdy" class="input-text" maxlength="8" onkeyup="fn_inputKey('1', this);">
-                            <span class="ex-txt">예) 19990909</span>
+                            <input type="text" title="생년월일 입력" placeholder="" id="lesseeBirthday" name="applcntBrthdy" class="input-text" maxlength="6" onkeyup="fn_inputKey('1', this);">
+                            <span class="ex-txt">예) 970909</span>
                         </div>
                         <div class="input-util">
                             <p class="input-warning">생년월일을 다시 확인해주세요</p>
@@ -92,30 +88,30 @@
                     </th>
                     <td>
                         <div class="input-ex-text w300px">
-                            <input type="text" title="연락처1 입력" placeholder="ex) 01055558282" id="inputTel1Num" name="telNo" class="input-text w340px" onkeyup="fn_inputKey('1', this);" maxlength="11">
+                            <input type="text" title="연락처1 입력" placeholder="ex) 01055558282" id="inputTel1Num" name="lesseePhoneNumber" class="input-text w340px" onkeyup="fn_inputKey('1', this);" maxlength="11">
                             <div class="input-util">
                                 <p class="input-warning">연락처를 입력해주세요</p>
                             </div>
                         </div>
                     </td>
                 </tr>
-                <tr>
-                    <th scope="row">
-                        <label for="inputTelNum" class="label"> 연락처2</label>
-                    </th>
-                    <td>
-                        <div class="input-ex-text w300px">
-                            <input type="text" title="연락처2 입력" placeholder="" id="inputTel2Num" name="telNo" class="input-text w340px mb-block" onkeyup="fn_inputKey('1', this);" maxlength="11">
-                        </div>
-                    </td>
-                </tr>
+<%--                <tr>--%>
+<%--                    <th scope="row">--%>
+<%--                        <label for="inputTelNum" class="label"> 연락처2</label>--%>
+<%--                    </th>--%>
+<%--                    <td>--%>
+<%--                        <div class="input-ex-text w300px">--%>
+<%--                            <input type="text" title="연락처2 입력" placeholder="" id="inputTel2Num" name="telNo" class="input-text w340px mb-block" onkeyup="fn_inputKey('1', this);" maxlength="11">--%>
+<%--                        </div>--%>
+<%--                    </td>--%>
+<%--                </tr>--%>
                 <tr>
                     <th scope="row">
                         <label for="label_cont01_03" class="label req">이메일</label>
                     </th>
                     <td>
                         <div class="input-ex-text w300px">
-                            <input type="text" title="이메일" placeholder="ex) billim@farm.com" id="mberEmail" name="mberEmail" class="input-text w340px" onkeyup="fn_inputKey('9', this);" maxlength="40">
+                            <input type="text" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail" name="lesseeEmail" class="input-text w340px" onkeyup="fn_inputKey('9', this);" maxlength="40">
                             <div class="input-util">
                                 <p class="input-warning">이메일을 입력해주세요</p>
                             </div>
@@ -146,7 +142,7 @@
                     </th>
                     <td>
                         <div class="mt5">
-                            <input type="text" title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트" id="applcntRnAddrName" name="applcntRnAddrName" class="input-text w640px"> <!--readonly="readonly"-->
+                            <input type="text" title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트" id="applcntRnAddrName" name="lesseeAddress" class="input-text w640px"> <!--readonly="readonly"-->
                         </div>
                         <div class="input-util">
                             <p class="input-warning">주소를 입력해주세요</p>
@@ -159,7 +155,7 @@
                     </th>
                     <td>
                         <div class="input-btn-type word-6 w330px">
-                            <input type="text" title="우편번호 입력" placeholder="" id="applcntZipCode2" class="input-text"> <!--readonly="readonly"-->
+                            <input type="text" title="우편번호 입력" placeholder="" id="applcntZipCode" name="localInstitution" class="input-text"> <!--readonly="readonly"-->
                             <div class="input-util">
                                 <p class="input-warning">사무소를 선택해주세요</p>
                             </div>
@@ -173,11 +169,11 @@
 
         <div class="button-group a-c">
             <a class="button gray">임시저장</a>
-            <a href="javascript:fn_search2();" class="button blue">다음</a>
+            <button type="submit">전송</button> <!--href="javascript:fn_search2();"-->
         </div>
         <!--// 기본정보 입력 -->
     </div>
-</form:form>
+</form>
 
 <script type="text/javascript">
 
@@ -311,56 +307,6 @@
 
     }
 
-    /**
-     * 가입확인 버튼 클릭
-     */
-    function fn_search(){
-
-        //결과 확인 div 초기화
-        $(".box-result").hide();
-
-        //입력 항목 확인
-        if(!fn_validation()) return;
-
-        loadingStart("inputTable");
-
-        $.ajax({
-            type:"POST",
-            url: "<c:url value='/uim/cmm/selectSbscrbAt.json'/>",
-            data : $("#userInfoVO").serialize(),
-            dataType : "json",
-            success: function(result){
-
-                if (result.status){
-                    if(result.foundResult){
-                        //기관회원인 경우
-                        if(result.insttMberTf){
-                            $(".insttMber-result").show();
-                        }else{
-                            $(".indvdlMber-result").show();
-                        }
-                    }else{
-                        if(confirm("회원 정보가 없습니다. 회원 가입을 계속 진행하시겠습니까?")){
-                            $("#userInfoVO").attr("onSubmit","");
-                            $("#userInfoVO").attr("action", "<c:url value='/uim/mss/mberStipulationFormView.do'/>").submit();
-                        }
-                    }
-                }
-                else{
-                    alert("<spring:message code='cmm.fail.process.msg' arguments='가입확인' />");
-                    $(".box-result").hide();
-                }
-
-                loadingStop("inputTable");
-            },
-            error: function(xhr, status, error){
-                alert("<spring:message code='cmm.fail.process.msg' arguments='가입확인' />");
-                $(".box-result").hide();
-                loadingStop("inputTable");
-            }
-        });
-
-    }
 
     //주소검색 팝업 호출
     function fn_searchAddress(type){

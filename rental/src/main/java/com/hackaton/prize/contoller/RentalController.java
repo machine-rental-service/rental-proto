@@ -25,8 +25,8 @@ public class RentalController {
 
     @GetMapping(value = "/step1")
     public String moveRentalForm() {
-        return "dummy/applyForm1";
-        //        return "endUser/rental-apply/applyForm1";
+//        return "dummy/applyForm1";
+        return "endUser/rental-apply/applyForm1";
     }
 
     @PostMapping(value = "/step1")
