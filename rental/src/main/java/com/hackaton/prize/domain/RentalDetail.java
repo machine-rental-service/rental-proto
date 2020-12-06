@@ -1,5 +1,6 @@
 package com.hackaton.prize.domain;
 
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,6 +12,7 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @NoArgsConstructor
+@Data
 @Table(name = "rental_detail")
 public class RentalDetail {//연관관계 JPA로 자동참조
 
