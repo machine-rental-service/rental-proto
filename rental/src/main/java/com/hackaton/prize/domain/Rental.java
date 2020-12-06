@@ -1,13 +1,11 @@
 package com.hackaton.prize.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -41,7 +39,7 @@ public class Rental {
 
     private LocalDate deadline;// 마감일=대여시작일+3일
 
-    @OneToOne(mappedBy = "rental", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @OneToOne(mappedBy = "rental", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private RentalDetail rentalDetail;
 
