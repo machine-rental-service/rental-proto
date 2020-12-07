@@ -10,9 +10,10 @@
     <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
     <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 <body>
+<%@ include file="../../navBar.jsp"%>
 <article>
 
-
+<br>
 
     <form action="step1" method="POST">
 
