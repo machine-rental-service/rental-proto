@@ -75,7 +75,7 @@
                         </tr>
                         <tr>
                             <td>상태</td>
-                            <td><%=rental.getApplied()%>
+                            <td><%=rental.getStatus()%>
                             </td>
                         </tr>
                         <tr>
@@ -90,7 +90,7 @@
                         </tr>
                         <tr>
                             <td>대여 일수</td>
-                            <td>3일.. ?(deadline-start)</td>
+                            <td>3일</td>
                         </tr>
                         <tr>
                             <td>대여소</td>
@@ -99,7 +99,8 @@
                         </tr>
                         <tr>
                             <td>대여금액</td>
-                            <td>30000원(금액필요)</td>
+                            <td><%=rental.getRentalDetail().getStaffComment()%>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -113,6 +114,7 @@
                         </tbody>
 
                     </table>
+                    <a type="button"  class="btn btn-primary btn-lg active" onClick="history.go(-1)">내 대여 현황 목록가기</a>
                 </div>
             </div>
         </div>

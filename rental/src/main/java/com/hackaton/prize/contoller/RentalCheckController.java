@@ -15,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-public class RentalCheckController {//테스트용 컨트롤러입니다(변경금지)
+public class RentalCheckController {
 
     @Autowired
     RentalCheckService rentalCheckService;
