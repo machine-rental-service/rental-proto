@@ -92,7 +92,7 @@
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
-                                <input type="text" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail"
+                                <input type="email" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail"
                                        name="lesseeEmail" class="input-text w340px" onkeyup="fn_inputKey('9', this);"
                                        maxlength="40">
                                 <div class="input-util">
@@ -145,7 +145,7 @@
                                 <div class="input-util">
                                     <p class="input-warning">사무소를 선택해주세요</p>
                                 </div>
-                                <a href="javascript:alert("호출 테스트");" class="button white">사무소 찾기</a>
+                                <button type="button" class="btn btn-info" onclick="">사무소 찾기</button>
                             </div>
                         </td>
                     </tr>
