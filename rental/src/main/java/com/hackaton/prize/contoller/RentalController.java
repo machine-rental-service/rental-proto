@@ -39,7 +39,7 @@ public class RentalController {
         RentalDto rentalDto = (RentalDto) session.getAttribute("lesseeData");
         String rentalIdNumber = makeRentalService.merge(rentalDetailDto,rentalDto);
 
-        return "redirect:/applyRead="+rentalIdNumber ; //2단계 폼으로 이동
+        return "redirect:../rentalCheckDetail/"+rentalIdNumber ; //2단계 폼으로 이동
     }
 
 
