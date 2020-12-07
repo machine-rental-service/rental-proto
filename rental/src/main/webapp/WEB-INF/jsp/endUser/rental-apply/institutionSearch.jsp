@@ -75,6 +75,78 @@
 <%--		<a href="javascript:fn_search2();" class="button blue">다음</a>--%>
 	</div>
 </div>
+
+
 <!-- pagination -->
 <ui:pagination paginationInfo = "${paginationInfo}" type="text" jsFunction="fn_adresList" />
 <!--// pagination -->
+
+<script type="text/javascript">
+	//페이징 버튼 클릭 이벤트
+	function fn_adresList(pageIndex){
+		var keyword = $('#hiddenAdres').val();
+		var param = {};
+		param.pageIndex = pageIndex;
+		param.keyword = keyword;
+		fn_search(param);
+	}
+
+	//검색 버튼 클릭 이벤트
+	function fn_selectAdresList(){
+		var keyword = $('#inputPopAdres').val();
+		var param = {};
+		param.keyword = keyword;
+
+		fn_search(param);
+	}
+
+	//주소 검색
+	function fn_search(param){
+		var keyword = (param.keyword == undefined ? '' : param.keyword);
+		var pageIndex = (param.pageIndex == undefined ? 1 : param.pageIndex);
+
+		loadingStart("tbodyAdresList");
+
+		$.ajax({
+			data : {
+				'searchKeyword1' : keyword
+				, 'searchKeyword2' : 'tbodyChange'
+				, 'pageIndex' 	   : pageIndex
+			}
+			, url : '/tcs/dor/selectAdresListPopupView.do'
+			, type : 'post'
+			, dataType : 'html'
+			, success : function(html){
+				loadingStop("tbodyAdresList");
+
+				$('#adresDiv').empty();
+				$('#adresDiv').html(html);
+
+				$('.lnmAdres_0').eq(0).parent('a').focus();
+			}
+			, error : function(error){
+				alert('팝업 호출에 실패하였습니다.');
+				loadingStop("tbodyAdresList");
+			}
+		})
+	}
+
+	//주소 클릭 이벤트
+	function fn_selectAdres(id){
+		var zipNo = $('.' + id).eq(0).val();		//우편번호
+		var adres = $('.' + id).eq(1).val();		//주소조회
+		var resultObject = {'zipNo' : zipNo, 'adres' : adres};
+
+		fn_callbackSelectAdres(resultObject);
+
+		//팝업닫기
+		$.modal.close();
+	}
+
+	//엔터키 버튼 클릭 이벤트
+	function fn_clickEnter(){
+		if(event.keyCode == 13){
+			fn_selectAdresList();
+		}
+	}
+</script>
