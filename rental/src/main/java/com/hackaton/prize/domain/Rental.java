@@ -1,7 +1,7 @@
 package com.hackaton.prize.domain;
 
-import lombok.*;
 
+import lombok.*;
 import javax.persistence.*;
 import java.time.LocalDate;
 
