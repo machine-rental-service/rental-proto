@@ -5,9 +5,9 @@ import com.hackaton.prize.infrastructure.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class RentalCheckService {
@@ -17,8 +17,12 @@ public class RentalCheckService {
 
     public List<Rental> getMyRentalList(String email) {
        List<Rental> myRentalList=new LinkedList<>();
-        myRentalList=rentalRepository.findBylesseeEmail(email);
-        return myRentalList;
+       myRentalList=rentalRepository.findBylesseeEmail(email);
+       return myRentalList;
     }
 
+    public Rental getRentalDetail(long id) {
+        Optional<Rental> rentalDetail = rentalRepository.findById(id);
+        return rentalDetail.get();
+    }
 }
