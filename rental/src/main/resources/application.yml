@@ -8,9 +8,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/rental?characterEncoding=UTF-8&serverTimezone=UTC"
-    username: root
-    password: root
+    url: "jdbc:mysql://b58094a047720f:a7f6091a@us-cdbr-east-02.cleardb.com/heroku_8680c16f36c8375?reconnect=true&useUnicode=true&characterEncoding=UTF-8"
+    username: b58094a047720f
+    password: a7f6091a
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:

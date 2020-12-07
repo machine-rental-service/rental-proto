@@ -1,13 +1,11 @@
 package com.hackaton.prize.domain;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode(of = "id")
@@ -23,7 +21,7 @@ public class Rental {
 
     private String lesseeName;
 
-    private String lesseeBirthday;
+    private String lesseeBirthday; //생년월일 YYMMDD
 
     private String lesseeEmail;
 
@@ -31,15 +29,15 @@ public class Rental {
 
     private String lesseeAddress;
 
-    private String localInstitution; //권역 사무소 (현재 DB 연관 관계 가질필요 없음)
+    private String localInstitution; // 권역 사무소 (현재 DB 연관 관계 가질필요 없음)
 
-    private String status; //신청 대기 -> 신청 승인 or 반려	-> 대여중 -> 반납 대기 -> 반납완료
+    private String status; // 신청 대기 -> 신청 승인 or 반려 -> 대여중 -> 반납 대기 -> 반납완료
 
-    private LocalDate applied; //접수등록일
+    private LocalDate applied; // 접수등록일
 
-    private LocalDate started; //대여시작일(희망수령일)
+    private LocalDate started; // 대여시작일(희망수령일)
 
-    private LocalDate deadline;//마감일=대여시작일+3일
+    private LocalDate deadline;// 마감일=대여시작일+3일
 
     @OneToOne(mappedBy = "rental", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
@@ -53,4 +51,3 @@ public class Rental {
         newRentalDetail.setRental(this);
     }
 }
-

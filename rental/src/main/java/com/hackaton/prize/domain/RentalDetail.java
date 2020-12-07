@@ -1,16 +1,17 @@
 package com.hackaton.prize.domain;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
 
+@Builder
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Table(name = "rental_detail")
 public class RentalDetail {//연관관계 JPA로 자동참조
 
