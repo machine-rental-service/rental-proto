@@ -1,0 +1,105 @@
+@charset "utf-8";
+/*! normalize.css v8.0.0 | MIT License | github.com/necolas/normalize.css */
+/* ableu reset */
+
+/* Document
+   ========================================================================== */
+html {-webkit-text-size-adjust: 100%;} /* iOS에서 방향 변경 후 글꼴 크기 조정 방지 */
+body {margin: 0;}
+
+
+/* Sections
+   ========================================================================== */
+article,
+aside,
+footer,
+header,
+nav,
+section,
+main,
+figure,
+figcaption {display: block; outline: none;}
+
+h1 {margin: 0.67em 0; font-size: 2em;}
+
+/* Grouping content
+========================================================================== */
+hr {overflow: visible; height: 0; box-sizing: content-box;}
+pre {font-size: 1em;}
+
+
+/* Text-level semantics
+========================================================================== */
+a {background-color: transparent;}/* IE 10의 활성 링크에서 회색 배경 제거 */
+abbr[title] {border-bottom: none; text-decoration: underline; text-decoration: underline dotted;} /* Chrome 57- 버젼에서 아래쪽 테두리 제거. Chrome, Edge, IE, Opera, Safari에 올바른 텍스트 장식을 추가 */
+b,
+strong {font-weight: bold;} /* Chrome, Edge 및 Safari에서 올바른 글꼴 굵기 */
+code,
+kbd,
+samp {font-size: 1em;}
+small {font-size: 80%;}
+sub,
+sup {position: relative; font-size: 75%; line-height: 0; vertical-align: baseline;} /* 모든 브라우저에서`sub` 및`sup` 요소가 줄 높이에 영향을 미치지 않도록합니다. */
+sub {bottom: -0.25em;}
+sup {top: -0.5em;}
+
+/* Embedded content
+========================================================================== */
+img {border:0; border-style: none;}
+
+/* Forms
+========================================================================== */
+button,
+input,
+optgroup,
+select,
+textarea {margin: 0; font-family: inherit; font-size: 1em; line-height: 1.15;} /* Firefox 및 Safari에서 margin 제거 */
+
+button,
+input {overflow: visible;} /* edge */
+
+button,
+select {text-transform: none;} /*  Edge, Firefox 및 IE에서 텍스트 변형의 상속을 제거. */
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {-webkit-appearance: button;} /* Correct the inability to style clickable types in iOS and Safari. */
+
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {border-style: none; padding: 0;} /* Firefox에서 안쪽 테두리와 패딩 제거하기 */
+
+/* button: -moz-focusring,
+[type="button"]: -moz-focusring,
+[type="reset"]: -moz-focusring,
+[type="submit"]: -moz-focusring {outline: 1px dotted ButtonText;} */ /* 이전 규칙에 따라 포커스 스타일을 설정 해제 , https: //developer.mozilla.org/en-US/docs/Web/CSS/: -moz-focusring */
+
+fieldset {padding: 0;}
+legend {display: table; max-width: 100%; padding: 0; box-sizing: border-box; white-space: normal; color: inherit;}
+
+progress {vertical-align: baseline;} /* Chrome, Firefox 및 Opera에서 올바른 세로 맞춤, https: //www.w3schools.com/tags/tag_progress.asp */
+
+textarea {overflow: auto;} /* IE 10 + 에서 기본 세로 스크롤 막대 제거 */
+
+[type="checkbox"],
+[type="radio"] {box-sizing: border-box; padding: 0;} /* IE 10 */
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {height: auto;} /* Chrome에서 증가 및 감소 버튼의 커서 스타일 수정 */
+
+[type="search"] {-webkit-appearance: textfield; outline-offset: -2px;} /* Chrome 및 Safari에서 이상한 모양 수정 */
+[type="search"]::-webkit-search-decoration {-webkit-appearance: none;} /* macOS에서 Chrome 및 Safari의 내부 패딩 제거 */
+
+::-webkit-file-upload-button {-webkit-appearance: button; font: inherit;} /* Safari에서 글꼴 속성을`상속'으로 변경 */
+
+/* Interactive
+   ========================================================================== */
+details {display: block;} /* Edge, IE 10+ 및 Firefox에서 올바른 디스플레이 추가 */
+summary {display: list-item;} /* 모든 브라우저에서 올바른 디스플레이 추가 */
+
+/* Misc (기타)
+   ========================================================================== */
+template {display: none;} /* IE 10+ */
+[hidden] {display: none;} /* IE 10 */
