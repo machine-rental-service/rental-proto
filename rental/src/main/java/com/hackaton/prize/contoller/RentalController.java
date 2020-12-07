@@ -4,7 +4,6 @@ import com.hackaton.prize.domain.dto.DummyDto;
 import com.hackaton.prize.domain.dto.RentalDetailDto;
 import com.hackaton.prize.domain.dto.RentalDto;
 import com.hackaton.prize.service.MakeRentalService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
