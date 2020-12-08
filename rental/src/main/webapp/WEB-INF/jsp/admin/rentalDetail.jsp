@@ -27,7 +27,11 @@
 					이앙 작업기 ${rental.rentalDetail.ricePlantingMachine} 
 				</c:if> <c:if test="${rental.rentalDetail.riceHarvester>0}">
 					벼 수확기 ${rental.rentalDetail.riceHarvester} 
-				</c:if></td>
+				</c:if>
+					<c:if test="${rental.rentalDetail.otherToolsRequest ne null}">
+						${rental.rentalDetail.otherToolsRequest}
+					</c:if>
+				</td>
 			</tr>
 			<tr>
 				<th>신청자 이름</th>

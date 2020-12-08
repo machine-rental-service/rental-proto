@@ -71,6 +71,9 @@
                                     if (myRentalList.get(i).getRentalDetail().getRiceHarvester() > 0) {
                                         rentalequip += "벼 수확기 " + myRentalList.get(i).getRentalDetail().getRiceHarvester() + " / ";
                                     }
+                                    if (!myRentalList.get(i).getRentalDetail().getOtherToolsRequest().equals("")) {
+                                        rentalequip += "" + myRentalList.get(i).getRentalDetail().getOtherToolsRequest();
+                                    }
                                 %>
                                 <%=rentalequip%>
                             </td>
