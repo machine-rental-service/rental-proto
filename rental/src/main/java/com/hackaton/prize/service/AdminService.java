@@ -13,6 +13,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import com.hackaton.prize.domain.Rental;
+import com.hackaton.prize.domain.RentalDetail;
 import com.hackaton.prize.infrastructure.repository.RentalDetailRepository;
 import com.hackaton.prize.infrastructure.repository.RentalRepository;
 
@@ -22,6 +23,7 @@ import lombok.AllArgsConstructor;
 @Service
 public class AdminService {
 	private RentalRepository rentalRepository;
+	private RentalDetailRepository rentalDetailRepository;
 
 	public List<Rental> getRentalList(int pageNum, int size, String orderBy) {
 		Page<Rental> page = rentalRepository.findAll(PageRequest.of(pageNum - 1, size, Sort.by(Sort.Direction.DESC, orderBy)));
@@ -76,8 +78,8 @@ public class AdminService {
 		return rentalList;
 	}
 
-	public void updateStatus(Rental rental) {
+	public void updateStatus(Rental rental, RentalDetail rentalDetail) {
 		rentalRepository.save(rental);
+		rentalDetailRepository.save(rentalDetail);
 	}
-
 }

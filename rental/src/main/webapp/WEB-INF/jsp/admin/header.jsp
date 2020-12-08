@@ -21,7 +21,7 @@
 		<nav class="navbar navbar-light">
 			<a class="navbar-brand">공기구 대여 사이트</a>
 			<div class="inline">
-				<a href="/admin/">
+				<a href="/admin/list">
 					<button class="btn btn-outline-success my-2 my-sm-0">신청 목록</button>
 				</a>
 				<button class="btn btn-outline-success my-2 my-sm-0 ">메뉴 1</button>
