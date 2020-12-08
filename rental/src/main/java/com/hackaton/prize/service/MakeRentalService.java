@@ -18,6 +18,7 @@ public class MakeRentalService {
     RentalRepository rentalRepository;
 
     String defaultStatus = "승인 대기중";
+    String whiteSpace=" ";
 
     public void makeDummy() {
         Rental sampleRental = new Rental();
@@ -37,7 +38,9 @@ public class MakeRentalService {
                 .lesseePhoneNumber(rentalDto.getLesseePhoneNumber())
                 .lesseeAddress(rentalDto.getLesseeAddress())
                 .localInstitution(rentalDto.getLocalInstitution())
-                .started(detailDto.getStarted()).applied(LocalDate.now())
+                .started(detailDto.getStarted())
+                .applied(LocalDate.now())
+                .deadline(detailDto.getStarted().plusDays(3))
                 .status(defaultStatus).build();
 
         RentalDetail detail = RentalDetail.builder()
@@ -50,7 +53,8 @@ public class MakeRentalService {
                 .sower(detailDto.getSower())
                 .ricePlantingMachine(detailDto.getRicePlantingMachine())
                 .riceHarvester(detailDto.getRiceHarvester())
-                .otherToolsRequest(detailDto.getOtherToolsRequest()).build();
+                .otherToolsRequest(detailDto.getOtherToolsRequest())
+                .staffComment(whiteSpace).build();
 
         rental.setRentalDetail(detail);
         rentalRepository.save(rental);

@@ -97,11 +97,11 @@
                             <td><%=rental.getLocalInstitution()%>
                             </td>
                         </tr>
-                        <tr>
+<%--                        <tr>
                             <td>대여금액</td>
                             <td><%=rental.getRentalDetail().getStaffComment()%>
                             </td>
-                        </tr>
+                        </tr>--%>
                         <tr>
                             <td>
                                 비고사항
@@ -114,7 +114,7 @@
                         </tbody>
 
                     </table>
-                    <a type="button"  class="btn btn-primary btn-lg active" onClick="history.go(-1)">내 대여 현황 목록가기</a>
+                    <a type="button"  class="btn btn-primary btn-lg active" onclick="location.href = '/apply/step1'">메인화면으로 돌아가기</a>
                 </div>
             </div>
         </div>

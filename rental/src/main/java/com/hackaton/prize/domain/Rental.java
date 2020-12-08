@@ -1,6 +1,7 @@
 package com.hackaton.prize.domain;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -33,10 +34,13 @@ public class Rental {
 
     private String status; // 신청 대기 -> 신청 승인 or 반려 -> 대여중 -> 반납 대기 -> 반납완료
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate applied; // 접수등록일
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate started; // 대여시작일(희망수령일)
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate deadline;// 마감일=대여시작일+3일
 
     @OneToOne(mappedBy = "rental", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
