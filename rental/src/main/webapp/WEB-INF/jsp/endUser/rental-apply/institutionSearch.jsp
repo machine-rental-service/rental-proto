@@ -44,17 +44,12 @@
 				<th scope="col">소재지도로명주소</th>
 			</tr>
 		</thead>
-		<tbody id="tbodyAdresList">
+		<tbody id="tbodyAddressList">
 			<tr>
 				<td colspan="4" class ="color-orange"> 거주지를 입력하면 인근 사업소가 나옵니다. </td>
 			</tr>
 		</tbody>
 	</table>
-
-	<div class="button-group a-c">
-		<a class="button gray"><strong class="color-picker-label">취소</strong></a>
-<%--		<a href="javascript:fn_search2();" class="button blue">다음</a>--%>
-	</div>
 </div>
 
 </article>

@@ -10,8 +10,7 @@
 	<script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 	<script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
 	<script>
-
-		function setInstitution2(keyword){
+		function send(keyword){
 			window.opener.setInstitution(keyword);
 			window.open('','_self').close();
 		}
@@ -37,13 +36,13 @@
 	<tr>
 		<td>구분</td><td>사무소 이름</td>주소지</td><td>전화번호</td>
 	</tr>
-	<c:forEach items="${list}" var="instituion">
+	<c:forEach items="${list}" var="institution">
 		<tr>
-			<td>${instituion.product}"</td>
-			<td>${instituion.name}"</td>
-			<td>${instituion.address}"</td>
-			<td>${instituion.phoneNumber}"</td>
-			<td><button onclick="send()">선택</button></td>
+			<td>${institution.product}"</td>
+			<td>${institution.name}"</td>
+			<td>${institution.address}"</td>
+			<td>${institution.phoneNumber}"</td>
+			<td><button onclick="send('${institution.name}')">선택</button></td>
 		</tr>
 	</c:forEach>
 </table>
