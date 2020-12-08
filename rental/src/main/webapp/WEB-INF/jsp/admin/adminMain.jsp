@@ -47,7 +47,7 @@
 							<td>${status.count}</td>
 							<td>${rental.id}</td>
 							<td>${rental.localInstitution}</td>
-							<td><a href="rentalDetail/${rental.id}">
+							<td><a href="/admin/rental_detail/${rental.id}">
 									<c:if test="${rental.rentalDetail.tractor>0}">
 						트랙터 ${rental.rentalDetail.tractor} 
 					</c:if>
