@@ -1,5 +1,6 @@
 package com.hackaton.prize.service;
 
+import com.hackaton.prize.domain.Institution;
 import com.hackaton.prize.domain.Rental;
 import com.hackaton.prize.domain.RentalDetail;
 import com.hackaton.prize.domain.dto.RentalDetailDto;
@@ -17,7 +18,11 @@ public class MakeRentalService {
     @Autowired
     RentalRepository rentalRepository;
 
+    @Autowired
+    InstitutionRepository institutionRepository;
+
     String defaultStatus = "승인 대기중";
+    String whiteSpace = " ";
 
     public void makeDummy() {
         Rental sampleRental = new Rental();
@@ -29,6 +34,11 @@ public class MakeRentalService {
         rentalRepository.save(sampleRental);
     }
 
+    public Institution getInstitutionInformation(String name){
+        Institution target = institutionRepository.findByName(name);
+        return target;
+    }
+
     public String merge(RentalDetailDto detailDto, RentalDto rentalDto) {
         Rental rental = Rental.builder()
                 .lesseeName(rentalDto.getLesseeName())
@@ -37,7 +47,9 @@ public class MakeRentalService {
                 .lesseePhoneNumber(rentalDto.getLesseePhoneNumber())
                 .lesseeAddress(rentalDto.getLesseeAddress())
                 .localInstitution(rentalDto.getLocalInstitution())
-                .started(detailDto.getStarted()).applied(LocalDate.now())
+                .started(detailDto.getStarted())
+                .applied(LocalDate.now())
+                .deadline(detailDto.getStarted().plusDays(3))
                 .status(defaultStatus).build();
 
         RentalDetail detail = RentalDetail.builder()
@@ -50,7 +62,8 @@ public class MakeRentalService {
                 .sower(detailDto.getSower())
                 .ricePlantingMachine(detailDto.getRicePlantingMachine())
                 .riceHarvester(detailDto.getRiceHarvester())
-                .otherToolsRequest(detailDto.getOtherToolsRequest()).build();
+                .otherToolsRequest(detailDto.getOtherToolsRequest())
+                .staffComment(whiteSpace).build();
 
         rental.setRentalDetail(detail);
         rentalRepository.save(rental);

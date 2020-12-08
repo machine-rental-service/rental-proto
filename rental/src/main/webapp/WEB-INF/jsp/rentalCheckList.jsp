@@ -17,13 +17,12 @@
     <title>대여 승인 목록</title>
 </head>
 <body>
-<div class="container">
-    <div class="row">
-        <div class="col-lg-10 col-xl-9 mx-auto">
-            <div class="card" style="margin-top: 30px">
-                <div class="card-body table-responsive">
+<%@ include file="./navBar.jsp"%>
+<div class="container" style="height: 88%">
+ <div class="card-body table-responsive" >
                     <h5 class="card-title text-center">내 대여 현황 목록</h5>
-                    <table class="table table-bordered table-hover">
+                    <h6 style="color:red">상세 내역을 보고싶다면, 해당 신청 정보를 클릭하세요</h6>
+                    <table class="table table-bordered table-hover" >
                         <thead>
                         <tr>
                             <th scope="col">연번</th>
@@ -87,8 +86,7 @@
                     </table>
                 </div>
             </div>
-        </div>
-    </div>
-</div>
+
+<%@ include file="./footer.jsp"%>
 </body>
 </html>

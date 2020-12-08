@@ -1,6 +1,7 @@
 package com.hackaton.prize.domain.dto;
 
 import lombok.Data;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -23,6 +24,7 @@ public class RentalDetailDto {
     private int riceHarvester; //벼 수확기
 
     private String otherToolsRequest; // 추가 생활공구 요청 한줄글
-    
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate started; //희망일
 }
