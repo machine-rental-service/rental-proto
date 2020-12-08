@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {//테스트용 컨트롤러입니다(변경금지)
 
   @RequestMapping("/")
-    public String showMain() {
+  public String showMain() {
         return "main"; //jsp 폴더 이하의.jsp 파일을 기재해주시면됩니다.
     }
 

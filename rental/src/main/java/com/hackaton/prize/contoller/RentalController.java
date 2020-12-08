@@ -38,8 +38,8 @@ public class RentalController {
     public String saveRentalData(Model model, RentalDetailDto rentalDetailDto, HttpSession session) {
         RentalDto rentalDto = (RentalDto) session.getAttribute("lesseeData");
         String rentalIdNumber = makeRentalService.merge(rentalDetailDto,rentalDto);
-
         return "redirect:../rentalCheckDetail/"+rentalIdNumber ; //2단계 폼으로 이동
+
     }
 
 

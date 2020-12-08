@@ -14,7 +14,6 @@
 <article>
 
 <br>
-
     <form action="step1" method="POST">
 
         <div class="join-wrap">

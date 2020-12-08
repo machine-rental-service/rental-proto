@@ -22,8 +22,8 @@ public class InstitutionController {
 
     @GetMapping("/search")
     public String moveSearchForm() {
-        return "dummy/institutionSearch";
-        //return "endUser/rental-apply/institutionSearch";
+//        return "dummy/institutionSearch";
+        return "endUser/rental-apply/institutionSearch";
     }
 
     @PostMapping("/search")
