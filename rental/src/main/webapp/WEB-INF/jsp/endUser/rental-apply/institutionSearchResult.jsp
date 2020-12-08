@@ -35,11 +35,11 @@
 <div class="col-table">
 	<table>
 		<colgroup>
-			<col style="width:150px;"><!-- 구분 -->
-			<col><!-- 사업소명 -->
-			<col><!-- 주소지 -->
-			<col style="width:300px;"><!-- 전화번호 -->
-			<col style="width:100px;"><!-- 선택 -->
+			<col style="width:10%;"><!-- 구분 -->
+			<col style="width:25%"><!-- 사업소명 -->
+			<col style="width:25%"><!-- 주소지 -->
+			<col style="width:25%"><!-- 전화번호 -->
+			<col style="width:15%"><!-- 선택 -->
 		</colgroup>
 		<thead>
 		<tr>
@@ -57,7 +57,7 @@
 					<td>${institution.name}</td>
 					<td>${institution.address}</td>
 					<td>${institution.phoneNumber}</td>
-					<td><button onclick="send('${institution.name}')">선택</button></td>
+					<td><button class="btn btn-success btn-sm" onclick="send('${institution.name}')">선택</button></td>
 				</tr>
 			</c:forEach>
 		</tbody>
