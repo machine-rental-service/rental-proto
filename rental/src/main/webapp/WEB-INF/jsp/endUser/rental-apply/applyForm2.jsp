@@ -139,34 +139,12 @@
         </tr>
         <tr>
             <th scope="row">
-                <label class="label">트랙터</label>
-            </th>
-            <td>
-                <div class="input-ex-text w300px">
-                    <input name="tractor" type="number" value="0" class="input-text">
-                    <span class="ex-txt">(보유 수량: <c:out value="${institution.tractor}" /> )</span>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">
-                <label class="label">트랙터</label>
-            </th>
-            <td>
-                <div class="input-ex-text w300px">
-                    <input name="tractor" type="number" value="0" class="input-text">
-                    <span class="ex-txt">(보유 수량: <c:out value="${institution.tractor}" /> )</span>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <th scope="row">
                 <label class="label">기타 임대 농기계 보유정보(미지원)<br>(사유: 표준데이터 불량)</label>
             </th>
             <td>
                 <h6>https://www.data.go.kr/data/15017325/standard.do <br>
                     (데이터를 식별할 수없어, 현재 지원하지 않습니다. 규칙있는 숫자코드 처리 또는 데이터셋이 필요합니다.) </h6>
-                <img src="../../img/2.jpg">
+                <div style="border: grey solid 1px"><img src="../../img/2.jpg"></div>
                     <div style="color: gray">
                     <br>* 케이스A: 176 (추가 기계정보 없이 숫자값만 존재하는 경우)<br>
                     * 케이스B: (정보는 있지만, 추가 가공또는 절차가 필요한경우)<br>
@@ -191,11 +169,11 @@
         </tr>
         </tbody>
     </table>
-        <div class="button-group a-c"><button type="submit" class="btn btn-primary">전송</button></div>
+        <div class="button-group a-c"><h6 style="color:red;">수령희망일을 꼭 선택해주세요!</h6><br><button type="submit" class="btn btn-primary">전송</button></div>
     </div>
 
 </form>
 </div>
-<%@ include file="../../navBar.jsp" %>
+<%@ include file="../../footer.jsp" %>
 </body>
 </html>
