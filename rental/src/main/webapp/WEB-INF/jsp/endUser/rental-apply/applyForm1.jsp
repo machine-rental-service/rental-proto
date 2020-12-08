@@ -34,8 +34,7 @@
 <%@ include file="../../navBar.jsp" %>
 <article>
  <br>
-    <form action="/make_order/2" method="POST" onsubmit="return fn_next()">
-
+    <form action="step1" method="POST" onsubmit="return fn_next()">
         <div class="join-wrap">
             <h2 class="tit just-pc">생활공구/농기계 대여신청</h2>
             <ol class="step-list">

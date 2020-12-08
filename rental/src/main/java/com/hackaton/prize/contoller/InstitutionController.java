@@ -28,8 +28,8 @@ public class InstitutionController {
     @PostMapping("/search")
     public String search(Model model, String keyword) {
         model.addAttribute("keyword",keyword);
-      List<Institution> list= institutionRepository.findAllByAddressContains(keyword);
-      model.addAttribute("list", list);
+        List<Institution> list= institutionRepository.findAllByAddressContains(keyword);
+        model.addAttribute("list", list);
         return "endUser/rental-apply/institutionSearchResult";
     }
 

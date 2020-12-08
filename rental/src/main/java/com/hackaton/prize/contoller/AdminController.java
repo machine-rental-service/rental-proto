@@ -1,5 +1,7 @@
 package com.hackaton.prize.contoller;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.hackaton.prize.domain.Rental;
+import com.hackaton.prize.domain.RentalDetail;
 import com.hackaton.prize.service.AdminService;
 
 @Controller
@@ -25,6 +28,7 @@ public class AdminController {
 					   @RequestParam(value = "page", defaultValue = "1") int page,
 					   @RequestParam(value = "size", defaultValue = "20") int size,
 					   @RequestParam(value = "orderBy", defaultValue = "applied") String orderBy) {
+
 		List<Rental> rentalList = adminService.getRentalList(page, size, orderBy);
 		List<Integer> pageList = adminService.getPageList(page, size);
 		int lastPage = (int) (adminService.getBoardCount() / size);
@@ -47,15 +51,27 @@ public class AdminController {
 
 	@RequestMapping("/search")
 	public String serarch(@RequestParam(value = "searchType") String keyType,
-						  @RequestParam(value = "keyword") String[] keyword, Model model) {
+                        @RequestParam(value = "keyword") String[] keyword, Model model) {
 		List<Rental> rentalList = adminService.searchRental(keyType, keyword);
 		model.addAttribute("rentalList", rentalList);
 		return "admin/adminMain";
 	}
 
-	@PostMapping("/updateStatus") //차후 수정바람 url에는 대문자를 안섞어요 (ㅠ_ㅠ)
-	public String update(Rental rental) {
-		adminService.updateStatus(rental);
-		return "redirect:";
+	@PostMapping("/update_status")
+	public String update(@RequestParam(value = "staffComment") String staffComment, @RequestParam(value = "id") Long id, @RequestParam(value = "func") String func) {
+		Rental rental = adminService.getRental(id);
+		RentalDetail rentalDetail = rental.getRentalDetail();
+
+		rentalDetail.setStaffComment(staffComment);
+		rentalDetail.setStaffApproved(LocalDate.now(ZoneId.of("Asia/Seoul")));
+
+		// func - modify가 아니라면 rental 상태까지 수정
+		if (!func.equals("modify")) {
+			rental.setStatus(func);
+		}
+
+		adminService.updateStatus(rental, rentalDetail);
+
+		return "redirect:list";
 	}
 }

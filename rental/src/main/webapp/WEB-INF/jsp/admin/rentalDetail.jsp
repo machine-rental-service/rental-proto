@@ -45,13 +45,10 @@
 				<th>접수일자</th>
 				<td>${rental.applied}</td>
 			</tr>
-			<tr>
-				<th>대여금액</th>
-				<td></td>
-			</tr>
+
 		</table>
 		<hr />
-		<table class='table  col-6 table-striped'>
+		<table class='table  col-6 table-striped '>
 			<tr>
 				<th>상태</th>
 				<td>${rental.status}</td>
@@ -73,49 +70,44 @@
 				<th>대여소</th>
 				<td>${rental.localInstitution}</td>
 			</tr>
-			<!-- 상태가 대여중. 반납완료가 아닐 때만 표시 -->
-			<c:if test="${rental.status eq '신청 대기'}">
-				<tr class='container text-center my-4 '>
-					<td></td>
-					<td class="row">
-						<form action="/admin/updateStatus" method="post">
-							<input type="hidden" name="id" value="${rental.id}">
-							<input type="hidden" name="status" value="신청 승인">
-							<button class="btn btn-primary btn-lg" type="submit">승인</button>
-						</form>
-
-						<button id="rejectBtn" class="btn btn-dark btn-lg">반려</button>
-					</td>
-				</tr>
-			</c:if>
+			<tr>
+				<th>대여금액</th>
+				<td></td>
+			</tr>
 		</table>
 	</div>
 
 
-	<div class='container text-center' <c:if test="${rental.status ne '신청 반려'}">id="rejectDiv"</c:if>>
-		<hr />
-		<div>
-			<h3 class="text-center my-4">반려 사유</h3>
-		</div>
-
-		<form class='row' action="/admin/updateStatus" method="post">
-			<textarea class="col-10" rows="4" >${rental.rentalDetail.staffComment}</textarea>
-			<input type="hidden" name="id" value="${rental.id}">
-			<input type="hidden" name="status" value="신청 반려">
-			<button class="btn btn-dark btn-lg" type="submit">반려 사유 수정</button>
-		</form>
+	<hr />
+	<div>
+		<h3 class="text-center my-4">Comment(비고사항)</h3>
 	</div>
 
-
+	<form id="updateStatusForm" class='row' action="/admin/update_status" method="post">
+		<textarea class="col-10" rows="4" name="staffComment">${rental.rentalDetail.staffComment}</textarea>
+		<input type="hidden" name="id" value="${rental.id}">
+		<input type="hidden" name="func" value="">
+		<c:choose>
+			<c:when test="${rental.status eq '승인 대기중'}">
+				<button value="신청 승인" class="btn btn-primary btn-lg">승인</button>
+				<button value="신청 반려" class="btn btn-dark btn-lg">반려</button>
+			</c:when>
+			<c:otherwise>
+				<button value="modify" class="btn btn-dark btn-lg" type="button">코멘트 수정</button>
+			</c:otherwise>
+		</c:choose>
+	</form>
 </div>
+
+<script type="text/javascript">
+	$("#updateStatusForm .btn").click(function(e) {
+		e.preventDefault();
+
+		$("#updateStatusForm input[name='func']").val($(this).attr('value'));
+
+		$("#updateStatusForm").submit();
+	});
+</script>
 
 <%@ include file="footer.jsp"%>
 
-<script>
-	
-	$("#rejectDiv").hide();
-	
-	$("#rejectBtn").click(function() {
-		$("#rejectDiv").show();
-	});
-</script>
