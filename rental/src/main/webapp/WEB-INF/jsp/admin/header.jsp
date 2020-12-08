@@ -14,20 +14,18 @@
 </head>
 
 <body>
-	<div class="bg-light">
-		<div class="text-center page-header" id="header">
-			<h1>header</h1>
-		</div>
-		<nav class="navbar navbar-light">
-			<a class="navbar-brand">공기구 대여 사이트</a>
-			<div class="inline">
-				<a href="/admin/list">
-					<button class="btn btn-outline-success my-2 my-sm-0">신청 목록</button>
-				</a>
-				<button class="btn btn-outline-success my-2 my-sm-0 ">메뉴 1</button>
-				<button class="btn btn-outline-success my-2 my-sm-0 ">메뉴 2</button>
-			</div>
-		</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+	<a class="navbar-brand" href=/>공공장비온라인센터</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
 
-		<hr>
+	<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+		<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+			<li class="nav-item active">
+				<a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+			</li>
+		</ul>
 	</div>
+</nav></body>
+</html>

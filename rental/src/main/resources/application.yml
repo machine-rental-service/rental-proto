@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8080
   
 spring:
   mvc:
@@ -8,9 +8,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://b58094a047720f:a7f6091a@us-cdbr-east-02.cleardb.com/heroku_8680c16f36c8375?reconnect=true&useUnicode=true&characterEncoding=UTF-8"
-    username: b58094a047720f
-    password: a7f6091a
+    url: "jdbc:mysql://b26a1e62c55151:9aa26d0e@us-cdbr-east-02.cleardb.com/heroku_fb092e901eaad43?reconnect=true&useUnicode=true&characterEncoding=UTF-8"
+    username: b26a1e62c55151
+    password: 9aa26d0e
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:

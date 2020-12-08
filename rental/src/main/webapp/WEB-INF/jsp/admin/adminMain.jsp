@@ -31,13 +31,13 @@
 	<div>
 		<table class="table table-hover">
 			<tr class='bg-light'>
-				<th class="one wide">연번</th>
-				<th class="ten  wide">신청번호</th>
-				<th class="two  wide">담당사무소</th>
-				<th class="three  wide">대여중인 물품</th>
-				<th class="two wide">대여자</th>
-				<th class="two wide">접수일</th>
-				<th class="two wide">상태</th>
+				<th width="10%">연번</th>
+				<th width="10%">신청번호</th>
+				<th width="20%">담당사무소</th>
+				<th width="25%">대여중인 물품</th>
+				<th witdh="10%">대여자</th>
+				<th width="10%">접수일</th>
+				<th width="15%">상태</th>
 			</tr>
 
 			<c:choose>

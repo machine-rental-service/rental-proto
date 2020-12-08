@@ -23,8 +23,12 @@ public class AdminController {
 	@Autowired
 	private AdminService adminService;
 
-	@RequestMapping({ "/list", "" })
-	public String list(Model model, @RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "size", defaultValue = "20") int size, @RequestParam(value = "orderBy", defaultValue = "applied") String orderBy) {
+	@RequestMapping("/list")
+	public String list(Model model,
+					   @RequestParam(value = "page", defaultValue = "1") int page,
+					   @RequestParam(value = "size", defaultValue = "20") int size,
+					   @RequestParam(value = "orderBy", defaultValue = "applied") String orderBy) {
+
 		List<Rental> rentalList = adminService.getRentalList(page, size, orderBy);
 		List<Integer> pageList = adminService.getPageList(page, size);
 		int lastPage = (int) (adminService.getBoardCount() / size);
@@ -46,7 +50,8 @@ public class AdminController {
 	}
 
 	@RequestMapping("/search")
-	public String serarch(@RequestParam(value = "searchType") String keyType, @RequestParam(value = "keyword") String[] keyword, Model model) {
+	public String serarch(@RequestParam(value = "searchType") String keyType,
+                        @RequestParam(value = "keyword") String[] keyword, Model model) {
 		List<Rental> rentalList = adminService.searchRental(keyType, keyword);
 		model.addAttribute("rentalList", rentalList);
 		return "admin/adminMain";

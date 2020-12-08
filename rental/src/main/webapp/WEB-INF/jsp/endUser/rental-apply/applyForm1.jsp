@@ -9,11 +9,19 @@
     <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
     <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
     <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+    <script>
+        function findInstitution() {
+            window.open("/institution/search", "주소검색", "");
+        }
+
+        function setInstitution(keyword) {
+            document.getElementById("localInstitution").value = keyword;
+        }
+    </script>
 <body>
+<%@ include file="../../navBar.jsp" %>
 <article>
-
-
-
+ <br>
     <form action="step1" method="POST">
 
         <div class="join-wrap">
@@ -42,27 +50,24 @@
                     <tbody>
                     <tr>
                         <th scope="row">
-                            <label for="label_cont01_01" class="label req">이름</label>
+                            <label class="label req">이름</label>
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
-                                <input type="text" title="이름" placeholder="ex) 김빌림" id="mberNm" name="lesseeName"
-                                       class="input-text w340px" onkeyup="fn_inputKey('4', this);" maxlength="11">
-                                <div class="input-util">
-                                    <p class="input-warning">이름을 입력해주세요</p>
-                                </div>
+                                <input type="text" title="이름" placeholder="ex) 김빌림" name="lesseeName"
+                                       class="input-text w340px" maxlength="11">
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="label_cont01_02" class="label req">생년월일</label>
+                            <label class="label req">생년월일</label>
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
                                 <input type="text" title="생년월일 입력" placeholder="" id="lesseeBirthday"
-                                       name="applcntBrthdy"
-                                       class="input-text" maxlength="6" onkeyup="fn_inputKey('1', this);">
+                                       name="lesseeBirthday"
+                                       class="input-text" maxlength="6" >
                                 <span class="ex-txt">예) 970909</span>
                             </div>
                             <div class="input-util">
@@ -76,13 +81,8 @@
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
-                                <input type="text" title="연락처1 입력" placeholder="ex) 01055558282" id="inputTel1Num"
-                                       name="lesseePhoneNumber" class="input-text w340px"
-                                       onkeyup="fn_inputKey('1', this);"
-                                       maxlength="11">
-                                <div class="input-util">
-                                    <p class="input-warning">연락처를 입력해주세요</p>
-                                </div>
+                                <input type="text" title="연락처1 입력" placeholder="ex) 010-5555-8282" id="inputTel1Num"
+                                       name="lesseePhoneNumber" class="input-text w340px">
                             </div>
                         </td>
                     </tr>
@@ -92,8 +92,8 @@
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
-                                <input type="text" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail"
-                                       name="lesseeEmail" class="input-text w340px" onkeyup="fn_inputKey('9', this);"
+                                <input type="email" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail"
+                                       name="lesseeEmail" class="input-text w340px"
                                        maxlength="40">
                                 <div class="input-util">
                                     <p class="input-warning">이메일을 입력해주세요</p>
@@ -121,12 +121,12 @@
                     <tbody>
                     <tr>
                         <th scope="row">
-                            <label for="applcntRnAddrName" class="label req">거주지 주소</label>
+                            <label class="label req">거주지 주소</label>
                         </th>
                         <td>
                             <div class="mt5">
                                 <input type="text" title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트"
-                                       id="applcntRnAddrName" name="lesseeAddress" class="input-text w640px">
+                                        name="lesseeAddress" class="input-text w640px">
                                 <!--readonly="readonly"-->
                             </div>
                             <div class="input-util">
@@ -136,16 +136,18 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="applcntRnAddrName" class="label req">권역 임대사무소</label>
+                            <label class="label req">권역 임대사무소</label>
                         </th>
                         <td>
-                            <div class="input-btn-type word-6 w330px">
-                                <input type="text" title="우편번호 입력" placeholder="" id="applcntZipCode"
-                                       name="localInstitution" class="input-text"> <!--readonly="readonly"-->
+                            <div class="input-btn-type w530px">
+                                <input type="text" placeholder="" id="localInstitution"
+                                       name="localInstitution" class="input-text">
+                                <span class="ex-txt">
+                                    <button style="display: inline;" type="button" class="btn btn-info" onclick="findInstitution()">사무소 찾기</button></span>
                                 <div class="input-util">
-                                    <p class="input-warning">사무소를 선택해주세요</p>
+                                    <p class="input-warning">새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요</p>
                                 </div>
-                                <a href="javascript:alert("호출 테스트");" class="button white">사무소 찾기</a>
+
                             </div>
                         </td>
                     </tr>
@@ -155,11 +157,12 @@
 
             <div class="button-group a-c">
                 <a class="btn btn-secondary">임시저장</a>
-                <button type="submit" class="btn btn-primary"">다음</button>
+                <button type="submit" class="btn btn-primary">다음</button>
             </div>
         </div>
     </form>
 </article>
+<%@ include file="../../footer.jsp" %>
 </body>
 
 </head>
