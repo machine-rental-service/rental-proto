@@ -22,7 +22,6 @@ public class RentalController {
 
     @GetMapping(value = "/step1")
     public String moveRentalForm() {
-//        return "dummy/applyForm1";
         return "endUser/rental-apply/applyForm1";
     }
 
@@ -40,7 +39,6 @@ public class RentalController {
         RentalDto rentalDto = (RentalDto) session.getAttribute("lesseeData");
         String rentalIdNumber = makeRentalService.merge(rentalDetailDto,rentalDto);
         return "redirect:../rentalCheckDetail/"+rentalIdNumber ; //2단계 폼으로 이동
-
     }
 
 
