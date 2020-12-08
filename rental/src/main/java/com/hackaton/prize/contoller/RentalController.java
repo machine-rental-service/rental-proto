@@ -1,7 +1,6 @@
 package com.hackaton.prize.contoller;
 
 import com.hackaton.prize.domain.Institution;
-import com.hackaton.prize.domain.dto.DummyDto;
 import com.hackaton.prize.domain.dto.RentalDetailDto;
 import com.hackaton.prize.domain.dto.RentalDto;
 import com.hackaton.prize.service.MakeRentalService;
@@ -9,11 +8,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpSession;
 
 @Controller
@@ -31,7 +28,7 @@ public class RentalController {
 
     @PostMapping(value = "/step1")
     public String saveRentalData(Model model, RentalDto rentalDto, HttpSession session) {
-        Institution targetInstitution = makeRentalService.getInstitutionInforamtion(rentalDto.getLocalInstitution());
+        Institution targetInstitution = makeRentalService.getInstitutionInformation(rentalDto.getLocalInstitution());
          model.addAttribute("institution", targetInstitution);
         session.setAttribute("lesseeData", rentalDto);
         return "dummy/applyForm2"; //2단계로 이동

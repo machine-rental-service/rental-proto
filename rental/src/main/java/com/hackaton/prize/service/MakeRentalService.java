@@ -34,7 +34,7 @@ public class MakeRentalService {
         rentalRepository.save(sampleRental);
     }
 
-    public Institution getInstitutionInforamtion(String name){
+    public Institution getInstitutionInformation(String name){
         Institution target = institutionRepository.findByName(name);
         return target;
     }
