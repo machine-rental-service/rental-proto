@@ -27,26 +27,26 @@
 
 
 <div class="col-table">
-	<p class="tit-hide">사업소 선택</p>
 	<table>
-		<caption></caption>
 		<colgroup>
-			<col><!-- 사업소명 -->
 			<col style="width:150px;"><!-- 구분 -->
+			<col><!-- 사업소명 -->
+			<col><!-- 주소지 -->
 			<col style="width:300px;"><!-- 전화번호 -->
-			<col><!-- 도로명/지번 주소 -->
+			<col style="width:100px;"><!-- 선택 -->
 		</colgroup>
 		<thead>
 			<tr>
-				<th scope="col">사업소명</th>
 				<th scope="col">구분</th>
+				<th scope="col">사무소 이름</th>
+				<th scope="col">주소지</th>
 				<th scope="col">전화번호</th>
-				<th scope="col">소재지도로명주소</th>
+				<th scope="col">선택</th>
 			</tr>
 		</thead>
 		<tbody id="tbodyAddressList">
 			<tr>
-				<td colspan="4" class ="color-orange"> 거주지를 입력하면 인근 사업소가 나옵니다. </td>
+				<td colspan="5" class ="color-orange"> 거주지를 입력하면 인근 사업소가 나옵니다. </td>
 			</tr>
 		</tbody>
 	</table>

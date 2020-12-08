@@ -16,9 +16,8 @@
 		}
 	</script>
 <body>
-<Button onclick="setInstitution2('temp')">세팅</Button>
+<%--<Button onclick="setInstitution2('temp')">세팅</Button>--%>
 <article>
-	<H1>검색결과입니다</H1>
 	<form action="search" method="POST">
 		<div class="col-lg-10 col-xl-9 mx-auto">
 			<div class="data-mark-box">
@@ -28,25 +27,42 @@
 				<div class="input-util">
 					<span class="text-area">추천검색 예시 : <strong class="color-orange">봉화군, 충청남도, 인천</strong> (도/시/군 단위)</span>
 				</div>
+				<span><strong class="color-orange"></br>"${keyword}"</strong> 검색 결과입니다</span>
 			</div>
 		</div>
 	</form>
 
-<table class="table">
-	<tr>
-		<td>구분</td><td>사무소 이름</td>주소지</td><td>전화번호</td>
-	</tr>
-	<c:forEach items="${list}" var="institution">
+<div class="col-table">
+	<table>
+		<colgroup>
+			<col style="width:150px;"><!-- 구분 -->
+			<col><!-- 사업소명 -->
+			<col><!-- 주소지 -->
+			<col style="width:300px;"><!-- 전화번호 -->
+			<col style="width:100px;"><!-- 선택 -->
+		</colgroup>
+		<thead>
 		<tr>
-			<td>${institution.product}"</td>
-			<td>${institution.name}"</td>
-			<td>${institution.address}"</td>
-			<td>${institution.phoneNumber}"</td>
-			<td><button onclick="send('${institution.name}')">선택</button></td>
+			<th scope="col">구분</th>
+			<th scope="col">사무소 이름</th>
+			<th scope="col">주소지</th>
+			<th scope="col">전화번호</th>
+			<th scope="col">선택</th>
 		</tr>
-	</c:forEach>
-</table>
-
+		</thead>
+		<tbody>
+			<c:forEach items="${list}" var="institution">
+				<tr>
+					<td>${institution.product}"</td>
+					<td>${institution.name}"</td>
+					<td>${institution.address}"</td>
+					<td>${institution.phoneNumber}"</td>
+					<td><button onclick="send('${institution.name}')">선택</button></td>
+				</tr>
+			</c:forEach>
+		</tbody>
+	</table>
+</div>
 </article>
 </body>
 </head>

@@ -35,7 +35,6 @@
 <article>
  <br>
     <form action="step1" method="POST" onsubmit="return fn_next()">
-
         <div class="join-wrap">
             <h2 class="tit just-pc">생활공구/농기계 대여신청</h2>
             <ol class="step-list">
