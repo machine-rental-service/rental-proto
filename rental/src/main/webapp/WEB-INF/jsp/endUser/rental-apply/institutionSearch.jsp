@@ -15,7 +15,7 @@
 <form action="search" method="POST">
 	<div class="col-lg-10 col-xl-9 mx-auto">
 		<div class="data-mark-box">
-			<label class="title req-info" style>거주 구역</label>
+			<label class="title req-info" style>사업장/거주 구역</label>
 			<input type="text" name="keyword" placeholder="" title="주소 입력" class="input-text" style = "width: auto;">
 			<button type="submit" class="btn btn-primary">검색</button>
 			<div class="input-util">
