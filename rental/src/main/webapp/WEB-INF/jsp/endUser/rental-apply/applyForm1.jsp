@@ -9,9 +9,19 @@
     <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
     <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
     <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+    <script>
+        function findInstitution(){
+            window.open("/institution/search", "주소검색", "" );
+        }
+        function setInstitution(keyword){
+            document.getElementById("localInstitution").value  = keyword;
+        }
+    </script>
 <body>
 <%@ include file="../../navBar.jsp"%>
 <article>
+
+    <Button onclick="setInstitution('temp')">세팅</Button>
 
 <br>
     <form action="step1" method="POST">
@@ -140,12 +150,12 @@
                         </th>
                         <td>
                             <div class="input-btn-type word-6 w330px">
-                                <input type="text" title="우편번호 입력" placeholder="" id="applcntZipCode"
-                                       name="localInstitution" class="input-text"> <!--readonly="readonly"-->
+                                <input type="text" placeholder="" id="localInstitution"
+                                       name="localInstitution" class="input-text">
                                 <div class="input-util">
                                     <p class="input-warning">사무소를 선택해주세요</p>
                                 </div>
-                                <button type="button" class="btn btn-info" onclick="">사무소 찾기</button>
+                                <button type="button" class="btn btn-info" onclick="findInstitution()">사무소 찾기</button>
                             </div>
                         </td>
                     </tr>
@@ -155,7 +165,7 @@
 
             <div class="button-group a-c">
                 <a class="btn btn-secondary">임시저장</a>
-                <button type="submit" class="btn btn-primary"">다음</button>
+                <button type="submit" class="btn btn-primary">다음</button>
             </div>
         </div>
     </form>

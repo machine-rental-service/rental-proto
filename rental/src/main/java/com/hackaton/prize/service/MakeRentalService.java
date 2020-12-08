@@ -1,5 +1,6 @@
 package com.hackaton.prize.service;
 
+import com.hackaton.prize.domain.Institution;
 import com.hackaton.prize.domain.Rental;
 import com.hackaton.prize.domain.RentalDetail;
 import com.hackaton.prize.domain.dto.RentalDetailDto;
@@ -17,8 +18,11 @@ public class MakeRentalService {
     @Autowired
     RentalRepository rentalRepository;
 
+    @Autowired
+    InstitutionRepository institutionRepository;
+
     String defaultStatus = "승인 대기중";
-    String whiteSpace=" ";
+    String whiteSpace = " ";
 
     public void makeDummy() {
         Rental sampleRental = new Rental();
@@ -28,6 +32,11 @@ public class MakeRentalService {
 
         sampleRental.setRentalDetail(sampleDetail);
         rentalRepository.save(sampleRental);
+    }
+
+    public Institution getInstitutionInforamtion(String name){
+        Institution target = institutionRepository.findByName(name);
+        return target;
     }
 
     public String merge(RentalDetailDto detailDto, RentalDto rentalDto) {

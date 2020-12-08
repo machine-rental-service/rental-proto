@@ -22,15 +22,15 @@ public class InstitutionController {
 
     @GetMapping("/search")
     public String moveSearchForm() {
-//        return "dummy/institutionSearch";
         return "endUser/rental-apply/institutionSearch";
     }
 
     @PostMapping("/search")
     public String search(Model model, String keyword) {
+        model.addAttribute("keyword",keyword);
       List<Institution> list= institutionRepository.findAllByAddressContains(keyword);
       model.addAttribute("list", list);
-        return "dummy/institutionSearchResult";
+        return "endUser/rental-apply/institutionSearchResult";
     }
 
 
