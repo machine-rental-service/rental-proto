@@ -18,11 +18,23 @@
             document.getElementById("localInstitution").value = keyword;
         }
     </script>
+    <script type="text/javaScript">
+
+        /**
+         * document ready
+         */
+        $(function(){
+            //필수입력항목 미입력시 안내 메세지 숨김처리
+            $(".input-warning").hide();
+            $(".input-success").hide();
+        });
+
+    </script>
 <body>
 <%@ include file="../../navBar.jsp" %>
 <article>
  <br>
-    <form action="step1" method="POST">
+    <form action="step1" method="POST" onsubmit="return fn_next()">
 
         <div class="join-wrap">
             <h2 class="tit just-pc">생활공구/농기계 대여신청</h2>
@@ -54,8 +66,11 @@
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
-                                <input type="text" title="이름" placeholder="ex) 김빌림" name="lesseeName"
+                                <input type="text" title="이름" placeholder="ex) 김빌림" id="lesseeName" name="lesseeName"
                                        class="input-text w340px" maxlength="11">
+                                <div class="input-util">
+                                    <p class="input-warning">이름을 입력해주세요</p>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -68,21 +83,24 @@
                                 <input type="text" title="생년월일 입력" placeholder="" id="lesseeBirthday"
                                        name="lesseeBirthday"
                                        class="input-text" maxlength="6" >
+                                <div class="input-util">
+                                    <p class="input-warning">생년월일을 입력해주세요</p>
+                                </div>
                                 <span class="ex-txt">예) 970909</span>
-                            </div>
-                            <div class="input-util">
-                                <p class="input-warning">생년월일을 입력해주세요</p>
                             </div>
                         </td>
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="inputTelNum" class="label req">연락처1</label>
+                            <label for="inputTelNum" class="label req">연락처</label>
                         </th>
                         <td>
                             <div class="input-ex-text w300px">
-                                <input type="text" title="연락처1 입력" placeholder="ex) 010-5555-8282" id="inputTel1Num"
+                                <input type="text" title="연락처1 입력" placeholder="ex) 010-5555-8282" id="lesseePhoneNumber"
                                        name="lesseePhoneNumber" class="input-text w340px">
+                                <div class="input-util">
+                                    <p class="input-warning">연락처를 입력해주세요</p>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -125,12 +143,11 @@
                         </th>
                         <td>
                             <div class="mt5">
-                                <input type="text" title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트"
+                                <input type="text" title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트" id="lesseeAddress"
                                         name="lesseeAddress" class="input-text w640px">
-                                <!--readonly="readonly"-->
-                            </div>
-                            <div class="input-util">
-                                <p class="input-warning">주소를 입력해주세요</p>
+                                <div class="input-util">
+                                    <p class="input-warning">주소를 입력해주세요</p>
+                                </div>
                             </div>
                         </td>
                     </tr>
@@ -139,13 +156,23 @@
                             <label class="label req">권역 임대사무소</label>
                         </th>
                         <td>
+<%--                            <div class="input-btn-type w530px" id="localInstitution">--%>
+<%--                                <input type="text" placeholder=""--%>
+<%--                                       name="localInstitution" class="input-text" readonly="readonly" style ="width:340px;">--%>
+<%--                                <span class="ex-txt">--%>
+<%--                                    <button style="display: inline;" type="button" class="btn btn-info" onclick="findInstitution()">사무소 찾기</button></span>--%>
+<%--                            </div>--%>
+<%--                            <div class="input-util">--%>
+<%--                                    <p class="input-warning">사무소를 선택해주세요</br>(새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요)</p>--%>
+<%--                            </div>--%>
+
                             <div class="input-btn-type w530px">
                                 <input type="text" placeholder="" id="localInstitution"
-                                       name="localInstitution" class="input-text">
+                                       name="localInstitution" class="input-text" readonly ="readonly">
                                 <span class="ex-txt">
                                     <button style="display: inline;" type="button" class="btn btn-info" onclick="findInstitution()">사무소 찾기</button></span>
                                 <div class="input-util">
-                                    <p class="input-warning">새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요</p>
+                                    <p class="input-warning">사무소를 선택해주세요 (새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요)</p>
                                 </div>
 
                             </div>
@@ -158,6 +185,7 @@
             <div class="button-group a-c">
                 <a class="btn btn-secondary">임시저장</a>
                 <button type="submit" class="btn btn-primary">다음</button>
+<%--                <button type="button" class="button blue" onClick="fn_save();">작성 완료</button>--%>
             </div>
         </div>
     </form>
@@ -168,3 +196,84 @@
 </head>
 </html>
 
+<script type="text/javascript">
+/**
+ * 다음 버튼 누를 시
+ */
+function fn_next(){
+    //입력 항목 확인
+    if (!fn_validation()) return false;
+    else  return true;
+}
+
+/**
+ *  입력항목 체크
+ */
+function fn_validation(){
+
+    //필수입력항목 미입력시 안내 메세지 숨김처리
+    $(".input-warning").hide();
+
+    //이름
+    if(fn_empty($("#lesseeName").val())){
+        console.log("check 1-1 시작");
+        $("#lesseeName").next(".input-util").find(".input-warning").show();
+        $("#lesseeName").focus();
+        return false;
+    }
+
+    //생년월일
+    if(fn_empty($("#lesseeBirthday").val())){
+        $("#lesseeBirthday").next(".input-util").find(".input-warning").show();
+        $("#lesseeBirthday").focus();
+        return false;
+    }
+
+    //연락처
+    if(fn_empty($("#lesseePhoneNumber").val())){
+        $("#lesseePhoneNumber").next(".input-util").find(".input-warning").show();
+        $("#lesseePhoneNumber").focus();
+        return false;
+    }
+
+    //이메일 주소
+    if(fn_empty($("#lesseeEmail").val())){
+        $("#lesseeEmail").next(".input-util").find(".input-warning").show();
+        $("#lesseeEmail").focus();
+        return false;
+    }
+
+    //거주지 주소
+    if(fn_empty($("#lesseeAddress").val())){
+        $("#lesseeAddress").next(".input-util").find(".input-warning").show();
+        $("#lesseeAddress").focus();
+        return false;
+    }
+
+    //사무소 주소
+    if(fn_empty($("#localInstitution").val())){
+        $("#localInstitution").next(".input-util").find(".input-warning").show();
+        $("#localInstitution").focus();
+        return false;
+    }
+
+    return true;
+}
+
+ /**
+ * 값이 null인지 확인
+ * param  : str - 텍스트
+ * return  : 공백인지 여부
+ */
+function fn_empty(str) {
+
+    if(str == undefined){
+        return true;
+    }
+
+    if(str == "" || str.length <= 0 ){
+        return true;
+    }
+    return false;
+}
+</script>
