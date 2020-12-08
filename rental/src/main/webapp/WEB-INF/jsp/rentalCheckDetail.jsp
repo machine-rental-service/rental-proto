@@ -50,6 +50,9 @@
                                 if (rental.getRentalDetail().getRiceHarvester() > 0) {
                                     rentalequip += "벼 수확기 " + rental.getRentalDetail().getRiceHarvester() + " / ";
                                 }
+                                if (!rental.getRentalDetail().getOtherToolsRequest().equals("")) {
+                                    rentalequip += "" + rental.getRentalDetail().getOtherToolsRequest();
+                                }
                             %>
                                 <%=rentalequip%>
                             </td>
@@ -57,6 +60,11 @@
                         <tr>
                             <td>신청자 이름</td>
                             <td><%=rental.getLesseeName()%>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>신청자 이메일</td>
+                            <td><%=rental.getLesseeEmail()%>
                             </td>
                         </tr>
                         <tr>

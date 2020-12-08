@@ -72,6 +72,9 @@
 									<c:if test="${rental.rentalDetail.riceHarvester>0}">
 						벼 수확기 ${rental.rentalDetail.riceHarvester} 
 					</c:if>
+								<c:if test="${rental.rentalDetail.otherToolsRequest ne null}">
+									 ${rental.rentalDetail.otherToolsRequest}
+								</c:if>
 								</a></td>
 							<td>${rental.lesseeName}</td>
 							<td>${rental.applied}</td>
