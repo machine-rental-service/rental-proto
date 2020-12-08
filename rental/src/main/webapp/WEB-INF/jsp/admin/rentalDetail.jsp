@@ -88,7 +88,7 @@
 		<input type="hidden" name="id" value="${rental.id}">
 		<input type="hidden" name="func" value="">
 		<c:choose>
-			<c:when test="${rental.status eq '신청 대기'}">
+			<c:when test="${rental.status eq '승인 대기중'}">
 				<button value="신청 승인" class="btn btn-primary btn-lg">승인</button>
 				<button value="신청 반려" class="btn btn-dark btn-lg">반려</button>
 			</c:when>

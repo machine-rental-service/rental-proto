@@ -72,6 +72,6 @@ public class AdminController {
 
 		adminService.updateStatus(rental, rentalDetail);
 
-		return "redirect:";
+		return "redirect:list";
 	}
 }
