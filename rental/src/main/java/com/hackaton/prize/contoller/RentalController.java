@@ -4,7 +4,6 @@ import com.hackaton.prize.domain.dto.DummyDto;
 import com.hackaton.prize.domain.dto.RentalDetailDto;
 import com.hackaton.prize.domain.dto.RentalDto;
 import com.hackaton.prize.service.MakeRentalService;
-import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -39,8 +38,8 @@ public class RentalController {
     public String saveRentalData(Model model, RentalDetailDto rentalDetailDto, HttpSession session) {
         RentalDto rentalDto = (RentalDto) session.getAttribute("lesseeData");
         String rentalIdNumber = makeRentalService.merge(rentalDetailDto,rentalDto);
+        return "redirect:../rentalCheckDetail/"+rentalIdNumber ; //2단계 폼으로 이동
 
-        return "redirect:/applyRead="+rentalIdNumber ; //2단계 폼으로 이동
     }
 
 
