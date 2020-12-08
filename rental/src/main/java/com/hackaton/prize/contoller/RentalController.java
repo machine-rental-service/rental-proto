@@ -31,7 +31,7 @@ public class RentalController {
         Institution targetInstitution = makeRentalService.getInstitutionInformation(rentalDto.getLocalInstitution());
          model.addAttribute("institution", targetInstitution);
         session.setAttribute("lesseeData", rentalDto);
-        return "dummy/applyForm2"; //2단계로 이동
+        return "endUser/rental-apply/applyForm2"; //2단계로 이동
     }
 
     @PostMapping(value = "/step2") //대여 접수 폼 2단계 수집정보 저장 후, 해당 접수 조회 페이지로 이동

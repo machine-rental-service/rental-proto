@@ -136,13 +136,14 @@
                     </tr>
                     <tr>
                         <th scope="row">
-                            <label for="applcntRnAddrName" class="label req">권역 임대사무소</label>
+                            <label class="label req">권역 임대사무소</label>
                         </th>
                         <td>
                             <div class="input-btn-type w530px">
                                 <input type="text" placeholder="" id="localInstitution"
                                        name="localInstitution" class="input-text">
-                                <button style="display: inline;" type="button" class="btn btn-info" onclick="findInstitution()">사무소 찾기</button>
+                                <span class="ex-txt">
+                                    <button style="display: inline;" type="button" class="btn btn-info" onclick="findInstitution()">사무소 찾기</button></span>
                                 <div class="input-util">
                                     <p class="input-warning">새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요</p>
                                 </div>
@@ -161,6 +162,7 @@
         </div>
     </form>
 </article>
+<%@ include file="../../footer.jsp" %>
 </body>
 
 </head>

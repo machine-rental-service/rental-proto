@@ -13,12 +13,13 @@
     <title>대여 상세 조회</title>
 </head>
 <body>
-<div class="container">
+<%@ include file="././navBar.jsp"%>
+<div class="container"  style="height: 86%;">
     <div class="row">
         <div class="col-lg-10 col-xl-9 mx-auto">
             <div class="card" style="margin-top: 30px">
                 <div class="card-body table-responsive">
-                    <h5 class="card-title text-center">목록 상세보기</h5>
+                    <h5 class="card-title text-center">대여 신청 정보 상세보기</h5>
                     <table class="table table-bordered" align="center">
                         <tbody align="center">
                         <% Rental rental = (Rental) request.getAttribute("rental"); %>
@@ -114,7 +115,9 @@
                         </tbody>
 
                     </table>
-                    <a type="button"  class="btn btn-primary btn-lg active" onclick="location.href = '/apply/step1'">메인화면으로 돌아가기</a>
+                    <div style="text-align: center">
+                    <a type="button"  class="btn btn-primary btn-lg active" onclick="location.href = '/'">
+                        메인화면으로 돌아가기</a></div>
                 </div>
             </div>
         </div>
@@ -122,5 +125,6 @@
 </div>
 </div>
 </div>
+<%@ include file="././footer.jsp"%>
 </body>
 </html>
