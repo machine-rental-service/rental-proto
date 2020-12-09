@@ -157,10 +157,9 @@
             </th>
             <td>
                 <h6>https://www.data.go.kr/data/15017325/standard.do <br>
-                    (데이터가 표준화되어있지 않아, 현재 지원되지 않고 있습니다.) </h6>
+                    (데이터가 표준화되어있지 않아, 현재 지원하지 않고 있습니다.) </h6>
                 <div style="border: grey solid 1px"><img src="../../img/2.jpg"></div>
-                </div>
-            </td>
+                                </td>
         </tr>
         <tr>
             <th scope="row">
