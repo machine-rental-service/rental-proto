@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.ZoneId;
 
 @Service
 public class MakeRentalService {
@@ -48,7 +49,7 @@ public class MakeRentalService {
                 .lesseeAddress(rentalDto.getLesseeAddress())
                 .localInstitution(rentalDto.getLocalInstitution())
                 .started(detailDto.getStarted())
-                .applied(LocalDate.now())
+                .applied(LocalDate.now(ZoneId.of("Asia/Seoul")))
                 .deadline(detailDto.getStarted().plusDays(3))
                 .status(defaultStatus).build();
 

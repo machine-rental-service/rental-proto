@@ -26,7 +26,7 @@ public class AdminController {
 	@RequestMapping("/list")
 	public String list(Model model,
 					   @RequestParam(value = "page", defaultValue = "1") int page,
-					   @RequestParam(value = "size", defaultValue = "20") int size,
+					   @RequestParam(value = "size", defaultValue = "10") int size,
 					   @RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
 
 		List<Rental> rentalList = adminService.getRentalList(page, size, orderBy);

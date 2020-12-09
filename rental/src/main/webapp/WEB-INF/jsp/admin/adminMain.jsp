@@ -22,6 +22,7 @@
 		<div class="dropdown">
 			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">글개수</button>
 			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+				<a class="dropdown-item" href="?size=20&orderBy=${orderBy}">10</a>
 				<a class="dropdown-item" href="?size=20&orderBy=${orderBy}">20</a>
 				<a class="dropdown-item" href="?size=50&orderBy=${orderBy}">50</a>
 				<a class="dropdown-item" href="?size=100&orderBy=${orderBy}">100</a>
