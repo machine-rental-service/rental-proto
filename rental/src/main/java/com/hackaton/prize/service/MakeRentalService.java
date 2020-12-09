@@ -36,7 +36,7 @@ public class MakeRentalService {
     }
 
     public Institution getInstitutionInformation(String name){
-        Institution target = institutionRepository.findByName(name);
+        Institution target = institutionRepository.findTop1ByName(name);
         return target;
     }
 
