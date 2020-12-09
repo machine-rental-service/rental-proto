@@ -46,13 +46,21 @@
 				<td>${rental.lesseePhoneNumber}</td>
 			</tr>
 			<tr>
-				<th>접수일자</th>
-				<td>${rental.applied}</td>
+				<th>생년월일</th>
+				<td>${rental.lesseeBirthday}</td>
+			</tr>
+			<tr>
+				<th>이메일</th>
+				<td>${rental.lesseeEmail}</td>
 			</tr>
 
 		</table>
 		<hr />
 		<table class='table  col-6 table-striped '>
+			<tr>
+				<th>접수일자</th>
+				<td>${rental.applied}</td>
+			</tr>
 			<tr>
 				<th>상태</th>
 				<td>${rental.status}</td>
@@ -66,18 +74,11 @@
 				<td>${rental.deadline}</td>
 			</tr>
 			<tr>
-				<th>대여 일수</th>
-				<td><fmt:parseDate var="started" value="${rental.started}" pattern="yyyy-MM-dd" /> <fmt:parseDate var="deadline" value="${rental.deadline}" pattern="yyyy-MM-dd" /> <fmt:formatDate
-						var="started" value="${started}" pattern="yyyyMMdd" /> <fmt:formatDate var="deadline" value="${deadline}" pattern="yyyyMMdd" /> ${deadline-started}일</td>
-			</tr>
-			<tr>
 				<th>대여소</th>
 				<td>${rental.localInstitution}</td>
 			</tr>
 			<tr>
-				<th>대여금액</th>
-				<td></td>
-			</tr>
+				</tr>
 		</table>
 	</div>
 
