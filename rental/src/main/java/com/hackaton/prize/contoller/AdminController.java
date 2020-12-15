@@ -24,21 +24,12 @@ public class AdminController {
 	private AdminService adminService;
 
 	@RequestMapping("/list")
-	public String list(Model model,
-					   @RequestParam(value = "page", defaultValue = "1") int page,
-					   @RequestParam(value = "size", defaultValue = "10") int size,
-					   @RequestParam(value = "orderBy", defaultValue = "id") String orderBy) {
+	public String uiList(Model model) {
 
-		List<Rental> rentalList = adminService.getRentalList(page, size, orderBy);
-		List<Integer> pageList = adminService.getPageList(page, size);
-		int lastPage = (int) (adminService.getBoardCount() / size);
+		List<Rental> rentalList = adminService.getRentalList();
 
 		model.addAttribute("rentalList", rentalList);
-		model.addAttribute("pageList", pageList);
-		model.addAttribute("page", page);
-		model.addAttribute("size", size);
-		model.addAttribute("orderBy", orderBy);
-		model.addAttribute("lastPage", lastPage);
+
 		return "admin/adminMain";
 	}
 
@@ -47,14 +38,6 @@ public class AdminController {
 		Rental rental = adminService.getRental(id);
 		model.addAttribute("rental", rental);
 		return "admin/rentalDetail";
-	}
-
-	@RequestMapping("/search")
-	public String serarch(@RequestParam(value = "searchType") String keyType,
-                        @RequestParam(value = "keyword") String[] keyword, Model model) {
-		List<Rental> rentalList = adminService.searchRental(keyType, keyword);
-		model.addAttribute("rentalList", rentalList);
-		return "admin/adminMain";
 	}
 
 	@PostMapping("/update_status")

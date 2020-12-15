@@ -6,148 +6,181 @@
 
 <!DOCTYPE html>
 
-<%@ include file="header.jsp"%>
-<div class="container h-100">
-	<h2 class="text-center my-4">신청 목록</h2>
-	<div class='row float-right mb-2'>
-		<div class="dropdown mr-4">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">정렬</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="?size=${size}&orderBy=id">신청번호</a>
-				<a class="dropdown-item" href="?size=${size}&orderBy=status">상태</a>
-				<a class="dropdown-item" href="?size=${size}&orderBy=applied">접수일</a>
-				<a class="dropdown-item" href="?size=${size}&orderBy=localInstitution">담당 사무소</a>
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="description" content="">
+<meta name="author" content="">
+
+<title>SB Admin 2 - Tables</title>
+
+<!-- Custom fonts for this template -->
+<link href="/resource/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+<!-- Custom styles for this template -->
+<link href="/resource/css/sb-admin-2.min.css" rel="stylesheet">
+
+<!-- Custom styles for this page -->
+<link href="/resource/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+</head>
+
+<body id="page-top">
+
+	<!-- Page Wrapper -->
+	<div id="wrapper">
+
+		<!-- Sidebar -->
+		<%@ include file="/resource/sidebar.jsp"%>
+		<!-- End of Sidebar -->
+
+		<!-- Content Wrapper -->
+		<div id="content-wrapper" class="d-flex flex-column">
+
+			<!-- Main Content -->
+			<div id="content">
+
+				<!-- Topbar -->
+				<%@ include file="/resource/topbar.jsp"%>
+				<!-- End of Topbar -->
+
+				<!-- Begin Page Content -->
+				<div class="container-fluid">
+
+					<!-- Page Heading -->
+					<h1 class="h3 mb-2 text-gray-800 mb-4">[대여소명 넣으면 좋을 거 같아요]</h1>
+
+					<!-- DataTales Example -->
+					<div class="card shadow mb-4">
+						<div class="card-header py-3">
+							<h6 class="m-0 font-weight-bold text-primary">신청 목록</h6>
+						</div>
+						<div class="card-body">
+							<div class="table-responsive">
+								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+									<thead>
+										<tr>
+											<th>연번</th>
+											<th>신청번호</th>
+											<th>담당 대여소</th>
+											<th>대여중인 물품</th>
+											<th>대여자</th>
+											<th>접수일</th>
+											<th>상태</th>
+										</tr>
+									</thead>
+
+									<tbody>
+										<c:choose>
+											<c:when test="${fn:length(rentalList) > 0}">
+												<c:forEach var="rental" items="${rentalList}" varStatus="status">
+													<tr>
+														<td>${status.count}</td>
+														<td>${rental.id}</td>
+														<td>${rental.localInstitution}</td>
+														<td>
+															<a href="/admin/rental_detail/${rental.id}">
+																<c:if test="${rental.rentalDetail.tractor>0}">트랙터 ${rental.rentalDetail.tractor} </c:if>
+																<c:if test="${rental.rentalDetail.cultivator>0}">경운기 ${rental.rentalDetail.cultivator} </c:if>
+																<c:if test="${rental.rentalDetail.farmMaster>0}">관리기 ${rental.rentalDetail.farmMaster} </c:if>
+																<c:if test="${rental.rentalDetail.undergroundCropExtractor>0}">땅속작물수확기 ${rental.rentalDetail.undergroundCropExtractor}</c:if>
+																<c:if test="${rental.rentalDetail.thresher>0}">탈곡기 ${rental.rentalDetail.thresher}</c:if>
+																<c:if test="${rental.rentalDetail.sower>0}">자주형 종파기 ${rental.rentalDetail.sower}</c:if>
+																<c:if test="${rental.rentalDetail.ricePlantingMachine>0}">이앙 작업기 ${rental.rentalDetail.ricePlantingMachine}</c:if>
+																<c:if test="${rental.rentalDetail.riceHarvester>0}">벼 수확기 ${rental.rentalDetail.riceHarvester}</c:if>
+																<c:if test="${rental.rentalDetail.otherToolsRequest ne null}">${rental.rentalDetail.otherToolsRequest}</c:if>
+															</a>
+														</td>
+														<td>${rental.lesseeName}</td>
+														<td>${rental.applied}</td>
+														<td>${rental.status}</td>
+													</tr>
+												</c:forEach>
+											</c:when>
+											<c:otherwise>
+												<tr>
+													<td class="text-center" colspan="7">데이터가 존재하지 않습니다.</td>
+												</tr>
+											</c:otherwise>
+										</c:choose>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</div>
+
+				</div>
+				<!-- /.container-fluid -->
+
+			</div>
+			<!-- End of Main Content -->
+
+			<!-- Footer -->
+			<footer class="sticky-footer bg-white">
+				<div class="container my-auto">
+					<div class="copyright text-center my-auto">
+						<span>Copyright &copy; Your Website 2020</span>
+					</div>
+				</div>
+			</footer>
+			<!-- End of Footer -->
+
+		</div>
+		<!-- End of Content Wrapper -->
+
+	</div>
+	<!-- End of Page Wrapper -->
+
+	<!-- Scroll to Top Button-->
+	<a class="scroll-to-top rounded" href="#page-top">
+		<i class="fas fa-angle-up"></i>
+	</a>
+
+	<!-- Logout Modal-->
+	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		<div class="modal-dialog" role="document">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">×</span>
+					</button>
+				</div>
+				<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+				<div class="modal-footer">
+					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+					<a class="btn btn-primary" href="login.html">Logout</a>
+				</div>
 			</div>
 		</div>
-		<div class="dropdown">
-			<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">글개수</button>
-			<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-				<a class="dropdown-item" href="?size=20&orderBy=${orderBy}">10</a>
-				<a class="dropdown-item" href="?size=20&orderBy=${orderBy}">20</a>
-				<a class="dropdown-item" href="?size=50&orderBy=${orderBy}">50</a>
-				<a class="dropdown-item" href="?size=100&orderBy=${orderBy}">100</a>
-			</div>
-		</div>
 	</div>
-	<div>
-		<table class="table table-hover">
-			<tr class='bg-light'>
-				<th width="10%">연번</th>
-				<th width="10%">신청번호</th>
-				<th width="20%">담당사무소</th>
-				<th width="25%">대여중인 물품</th>
-				<th witdh="10%">대여자</th>
-				<th width="10%">접수일</th>
-				<th width="15%">상태</th>
-			</tr>
 
-			<c:choose>
-				<c:when test="${fn:length(rentalList) > 0}">
-					<c:forEach var="rental" items="${rentalList}" varStatus="status">
-						<tr>
-							<td>${status.count}</td>
-							<td>${rental.id}</td>
-							<td>${rental.localInstitution}</td>
-							<td><a href="/admin/rental_detail/${rental.id}">
-									<c:if test="${rental.rentalDetail.tractor>0}">
-						트랙터 ${rental.rentalDetail.tractor} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.cultivator>0}">
-						경운기 ${rental.rentalDetail.cultivator} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.farmMaster>0}">
-						관리기 ${rental.rentalDetail.farmMaster} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.undergroundCropExtractor>0}">
-						땅속작물수확기 ${rental.rentalDetail.undergroundCropExtractor} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.thresher>0}">
-						탈곡기 ${rental.rentalDetail.thresher} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.sower>0}">
-						자주형 종파기 ${rental.rentalDetail.sower} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.ricePlantingMachine>0}">
-						이앙 작업기 ${rental.rentalDetail.ricePlantingMachine} 
-					</c:if>
-									<c:if test="${rental.rentalDetail.riceHarvester>0}">
-						벼 수확기 ${rental.rentalDetail.riceHarvester} 
-					</c:if>
-								<c:if test="${rental.rentalDetail.otherToolsRequest ne null}">
-									 ${rental.rentalDetail.otherToolsRequest}
-								</c:if>
-								</a></td>
-							<td>${rental.lesseeName}</td>
-							<td>${rental.applied}</td>
-							<td>${rental.status}</td>
-						</tr>
-					</c:forEach>
-				</c:when>
-				<c:otherwise>
-					<tr>
-						<td class="text-center" colspan="7">데이터가 존재하지 않습니다.</td>
-					</tr>
-				</c:otherwise>
-			</c:choose>
+	<!-- Bootstrap core JavaScript-->
+	<script src="/resource/vendor/jquery/jquery.min.js"></script>
+	<script src="/resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-		</table>
-	</div>
-	<hr />
-	<div class='d-flex justify-content-between'>
-		<ul class="pagination">
-			<c:if test="${page>1}">
-				<li class="page-item">
-					<a class="page-link" href="?page=${page-1}&size=${size}&orderBy=${orderBy}" tabindex="-1" aria-disabled="true">Previous</a>
-				</li>
-			</c:if>
-			<c:forEach var="num" items="${pageList}" varStatus="status">
-				<c:if test="${num ne null}">
-					
-						<li class="page-item <c:if test="${num eq page }">active</c:if>">
-							<a href="?page=${num}&size=${size}&orderBy=${orderBy}" class="page-link">${num}</a>
-						</li>
-					
-				</c:if>
+	<!-- Core plugin JavaScript-->
+	<script src="/resource/vendor/jquery-easing/jquery.easing.min.js"></script>
 
-			</c:forEach>
+	<!-- Custom scripts for all pages-->
+	<script src="/resource/js/sb-admin-2.min.js"></script>
 
-			<c:if test="${page<lastPage}">
-				<li class="page-item">
-					<a class="page-link" href="?page=${page+1}&size=${size}&orderBy=${orderBy}">Next</a>
-				</li>
-			</c:if>
+	<!-- Page level plugins -->
+	<script src="/resource/vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="/resource/vendor/datatables/dataTables.bootstrap4.min.js"></script>
 
-		</ul>
+	<!-- Page level custom scripts -->
+	<script src="/resource/js/demo/datatables-demo.js"></script>
+	
+	<script type="text/javascript">
 
-		<form action="/admin/search" method="GET" class="form-inline ">
-			<select id="selectBox" name='searchType' class='form-control'>
-				<option value="localInstitution">담당 사무소</option>
-				<option value="lesseeName">대여자 이름</option>
-				<option value="applied">접수일</option>
-			</select>
-			<input id="keyword" class="form-control mx-2" name="keyword" type="text" placeholder="검색어를 입력해주세요">
-			<div class='row mx-2' id="peoridInput">
-				<input name='keyword' type="date" class='form-control'>
-				~
-				<input name='keyword' type="date" class='form-control'>
-			</div>
-			<button class="btn btn-dark">검색</button>
-		</form>
-	</div>
-</div>
-<%@ include file="footer.jsp"%>
 
-<script>
-	$("#peoridInput").hide();
 
-	$("#selectBox").change(function() {
-		if ($(this).val() == 'applied') {
-			$("#peoridInput").show();
-			$("#keyword").hide();
-		} else {
-			$("#peoridInput").hide()
-			$("#keyword").show();
-		}
-		;
-	});
-</script>
+	</script>
+
+</body>
+
+</html>
