@@ -13,10 +13,6 @@ import java.util.List;
 
 @Repository
 public interface RentalRepository extends JpaRepository<Rental, Long> {
-	List<Rental> findByLesseeNameContaining(String keyword);
-
-	List<Rental> findByLocalInstitutionContaining(String keyword);
-
 	List<Rental> findByAppliedBetween(LocalDate satrt, LocalDate end);
 
     List<Rental> findBylesseeEmail(String lesseeEmail);
