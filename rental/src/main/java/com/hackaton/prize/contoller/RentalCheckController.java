@@ -41,4 +41,5 @@ public class RentalCheckController {
         model.addAttribute("rental",rental);
         return "rentalCheckDetail"; //jsp 폴더 이하의.jsp 파일을 기재해주시면됩니다.
     }
+
 }
