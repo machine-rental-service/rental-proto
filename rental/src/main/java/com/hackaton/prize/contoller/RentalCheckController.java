@@ -30,7 +30,7 @@ public class RentalCheckController {
         List<Rental> myRentalList=rentalCheckService.getMyRentalList(email);
         ModelAndView mav=new ModelAndView();
         mav.addObject("myRentalList",myRentalList);
-        mav.setViewName("rentalCheckList");
+        mav.setViewName("myRental/rentalCheckList");
         return mav;
     }
 
@@ -38,7 +38,7 @@ public class RentalCheckController {
     public String rentalCheckDetail(@PathVariable("id") Long id, Model model) {
         Rental rental=rentalCheckService.getRentalDetail(id);
         model.addAttribute("rental",rental);
-        return "rentalCheckDetail";
+        return "myRental/rentalCheckDetail";
     }
 
 }

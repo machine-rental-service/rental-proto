@@ -35,7 +35,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@ include file="./sidebar.jsp"%>
+    <%@ include file="../sidebar.jsp"%>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -45,7 +45,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <%@ include file="./topbar2.jsp"%>
+            <%@ include file="../topbar2.jsp"%>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
