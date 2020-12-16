@@ -27,14 +27,15 @@
 
 </head>
 <body>
-<%@ include file="./navBar.jsp" %>
+<%--<%@ include file="./navBar.jsp" %>--%>
 <div id="wrapper">
-
+    <%@ include file="./sidebar.jsp"%>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
         <div id="content">
+            <%@ include file="./topbar2.jsp"%>
             <br/>
             <!-- Begin Page Content -->
             <div class="container-fluid">
