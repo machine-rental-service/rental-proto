@@ -33,8 +33,8 @@ public class AdminController {
 		return "admin/adminMain";
 	}
 
-	@RequestMapping("/rental_detail/{id}")
-	public String detail(@PathVariable("id") Long id, Model model) {
+	@RequestMapping("/rental_detail")
+	public String detail(@RequestParam(value = "id") Long id, Model model) {
 		Rental rental = adminService.getRental(id);
 		model.addAttribute("rental", rental);
 		return "admin/rentalDetail";
