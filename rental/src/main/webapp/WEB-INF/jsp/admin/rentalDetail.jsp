@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Tables</title>
+<title>공무원 모드 - 신청 상세 조회</title>
 
 <!-- Custom fonts for this template -->
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">

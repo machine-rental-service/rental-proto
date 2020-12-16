@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Tables</title>
+<title>공무원 모드 - 신청 목록</title>
 
 <!-- Custom fonts for this template -->
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -63,13 +63,13 @@
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
 										<tr>
-											<th>연번</th>
-											<th>신청번호</th>
-											<th>담당 대여소</th>
-											<th>대여중인 물품</th>
-											<th>대여자</th>
-											<th>접수일</th>
-											<th>상태</th>
+											<th width="7%">연번</th>
+											<th width="10%">신청번호</th>
+											<th width="15%">담당 대여소</th>
+											<th width="35%">대여중인 물품</th>
+											<th width="8%">대여자</th>
+											<th width="12%">접수일</th>
+											<th width="13%">상태</th>
 										</tr>
 									</thead>
 
