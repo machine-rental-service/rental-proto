@@ -22,7 +22,7 @@ public class RentalCheckController {
 
     @RequestMapping(value = "/rentalCheck")
     public String rentalCheck() {
-        return "rentalCheck";
+        return "redirect:/rentalCheckList?email=";
     }
 
     @RequestMapping(value="/rentalCheckList", method = RequestMethod.GET)

@@ -11,7 +11,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>대여 승인 목록</title>
+    <title>대여 조회</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -27,7 +27,7 @@
 
 </head>
 <body>
-<%@ include file="./navBar.jsp"%>
+<%@ include file="./navBar.jsp" %>
 <div id="wrapper">
 
     <!-- Content Wrapper -->
@@ -38,12 +38,63 @@
             <br/>
             <!-- Begin Page Content -->
             <div class="container-fluid">
+                <h5>내 대여 현황 조회</h5>
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow card-header">
+                    <form action="rentalCheckList" name=rentalCheck method="get"
+                          class="d-none d-sm-inline-block form-inline ml-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="email" name="email" id="inputEmail"
+                                   class="form-control bg-light border-0 small"
+                                   placeholder="이메일을 입력하세요" required autofocus aria-label="Search"
+                                   aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
 
+                    <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown no-arrow d-sm-none show">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                               data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in show"
+                                 aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="email" name="email"
+                                               class="form-control bg-light border-0 small"
+                                               placeholder="이메일을 입력하세요" required autofocus aria-label="Search"
+                                               aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="submit">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">대여 신청시 작성했던 이메일 정보로, 이전에 작성한 대여 신청을 확인할 수 있습니다.</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <br/>
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">대여 승인 목록</h6>
+                        <h5 class="m-0 font-weight-bold text-primary">대여 승인 목록</h5>
                     </div>
+                    <% List<Rental> myRentalList = (List<Rental>) request.getAttribute("myRentalList");
+                        if(myRentalList.size()>0){%>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -59,11 +110,12 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <% List<Rental> myRentalList = (List<Rental>) request.getAttribute("myRentalList");
+                                <%
                                     for (int i = 0; i < myRentalList.size(); i++) {
                                 %>
                                 <tr onclick="location.href='rentalCheckDetail/<%=myRentalList.get(i).getId()%>'">
-                                    <td><%=i + 1%></td>
+                                    <td><%=i + 1%>
+                                    </td>
                                     <td><%=myRentalList.get(i).getId()%>
                                     </td>
                                     <td><%=myRentalList.get(i).getLocalInstitution()%>
@@ -107,11 +159,14 @@
                                     <td><%=myRentalList.get(i).getStatus()%>
                                     </td>
                                 </tr>
-                                <% } %>
+                                <% }%>
                                 </tbody>
                             </table>
                         </div>
                     </div>
+                    <%}else{%>
+                    <div class="card-body"><span><h6> [내 대여 현황 조회] 에서 이메일을 입력하세요.</h6></span></div>
+                    <%}%>
                 </div>
 
             </div>
@@ -120,12 +175,11 @@
         </div>
         <!-- End of Main Content -->
 
-        <%@ include file="./footer.jsp"%>
+        <%@ include file="./footer.jsp" %>
     </div>
     <!-- End of Content Wrapper -->
 
 </div>
-
 
 
 <!-- Bootstrap core JavaScript-->
