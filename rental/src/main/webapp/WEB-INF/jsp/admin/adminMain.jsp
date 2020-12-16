@@ -17,14 +17,14 @@
 <title>SB Admin 2 - Tables</title>
 
 <!-- Custom fonts for this template -->
-<link href="/resource/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
 <!-- Custom styles for this template -->
-<link href="/resource/css/sb-admin-2.min.css" rel="stylesheet">
+<link href="css/sb-admin-2.min.css" rel="stylesheet">
 
 <!-- Custom styles for this page -->
-<link href="/resource/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+<link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
 
 </head>
 
@@ -34,7 +34,7 @@
 	<div id="wrapper">
 
 		<!-- Sidebar -->
-		<%@ include file="/resource/sidebar.jsp"%>
+		<%@ include file="../sidebar.jsp"%>
 		<!-- End of Sidebar -->
 
 		<!-- Content Wrapper -->
@@ -44,7 +44,7 @@
 			<div id="content">
 
 				<!-- Topbar -->
-				<%@ include file="/resource/topbar.jsp"%>
+				<%@ include file="../topbar.jsp"%>
 				<!-- End of Topbar -->
 
 				<!-- Begin Page Content -->
@@ -81,8 +81,7 @@
 														<td>${status.count}</td>
 														<td>${rental.id}</td>
 														<td>${rental.localInstitution}</td>
-														<td>
-															<a href="/admin/rental_detail/${rental.id}">
+														<td><a href="/admin/rental_detail/${rental.id}">
 																<c:if test="${rental.rentalDetail.tractor>0}">트랙터 ${rental.rentalDetail.tractor} </c:if>
 																<c:if test="${rental.rentalDetail.cultivator>0}">경운기 ${rental.rentalDetail.cultivator} </c:if>
 																<c:if test="${rental.rentalDetail.farmMaster>0}">관리기 ${rental.rentalDetail.farmMaster} </c:if>
@@ -92,8 +91,7 @@
 																<c:if test="${rental.rentalDetail.ricePlantingMachine>0}">이앙 작업기 ${rental.rentalDetail.ricePlantingMachine}</c:if>
 																<c:if test="${rental.rentalDetail.riceHarvester>0}">벼 수확기 ${rental.rentalDetail.riceHarvester}</c:if>
 																<c:if test="${rental.rentalDetail.otherToolsRequest ne null}">${rental.rentalDetail.otherToolsRequest}</c:if>
-															</a>
-														</td>
+															</a></td>
 														<td>${rental.lesseeName}</td>
 														<td>${rental.applied}</td>
 														<td>${rental.status}</td>
@@ -158,29 +156,42 @@
 		</div>
 	</div>
 
+
 	<!-- Bootstrap core JavaScript-->
-	<script src="/resource/vendor/jquery/jquery.min.js"></script>
-	<script src="/resource/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
 	<!-- Core plugin JavaScript-->
-	<script src="/resource/vendor/jquery-easing/jquery.easing.min.js"></script>
-
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	<script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+	
 	<!-- Custom scripts for all pages-->
-	<script src="/resource/js/sb-admin-2.min.js"></script>
+	<script src="js/sb-admin-2.min.js"></script>
 
+	<script src="vendor/datatables/moment.min.js"></script>
 	<!-- Page level plugins -->
-	<script src="/resource/vendor/datatables/jquery.dataTables.min.js"></script>
-	<script src="/resource/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<script src="vendor/datatables/jquery.dataTables.min.js"></script>
+	<script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+	<script src="vendor/datatables/datetime-moment.js"></script>
 
 	<!-- Page level custom scripts -->
-	<script src="/resource/js/demo/datatables-demo.js"></script>
-	
+	<script src="js/demo/datatables-demo.js"></script>
+
+	<!-- jquery ui 추가 -->
+	<script src="vendor/datatables/jquery-ui.min.js"></script>
+
 	<script type="text/javascript">
-
-
-
+		$(document).ready(function() {
+			$("#searchType").change(function() {
+				if ($(this).val() == '5') {
+					$("#peorid").show();
+					$("#searchValue").hide();
+				} else {
+					$("#peorid").hide();
+					$("#searchValue").show();
+				}
+			});
+		});
 	</script>
-
 </body>
-
 </html>
