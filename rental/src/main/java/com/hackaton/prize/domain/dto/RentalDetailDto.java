@@ -28,4 +28,5 @@ public class RentalDetailDto {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate started; //희망일
+
 }
