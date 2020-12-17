@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+.row-table table th, .row-table table td {
+	vertical-align: middle;
+}
+
+.step-list li.on strong {
+	background-color: #007bff;
+}
+
+.row-table {
+	border-top: none;
+	margin-bottom: 20px;
+}
+
+a:link, a:active {
+	text-decoration: none;
+}
+
+.container {
+	min-height: 100%;
+	margin: -120px 0 -340px 0;
+	padding: 0;
+}
+
+a:visited, a:hover, a:focus, a:link, a:active {
+	color: white;
+}
+
+.fa-angle-up {
+	line-height: revert !important;
+}
