@@ -37,7 +37,7 @@ public class AdminService {
 	}
 
 	public List<Rental> getRentalList() {
-		List<Rental> rentalList = rentalRepository.findAll();
+		List<Rental> rentalList = rentalRepository.findAllByOrderByIdDesc();
 		
 		return rentalList;
 	}
