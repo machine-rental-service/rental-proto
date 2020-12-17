@@ -6,7 +6,7 @@
         <div class="copyright text-center my-auto">
             <div class="row">
                 <div class="col-md-4">
-                    <img align="right" style="width: 100px; height: 90px;" src="img/logo.png">
+                    <img align="right" style="width: 100px; height: 90px;" src="/img/logo.png">
                 </div>
                 <div class="col-md-5">
                     <br>
