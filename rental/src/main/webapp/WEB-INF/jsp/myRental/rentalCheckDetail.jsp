@@ -1,9 +1,9 @@
 <%@ page import="com.hackaton.prize.domain.Rental" %>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 
 <!DOCTYPE html>
 
@@ -19,7 +19,8 @@
 
     <!-- Custom fonts for this template -->
     <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../css/sb-admin-2.min.css" rel="stylesheet">
@@ -35,7 +36,7 @@
 <div id="wrapper">
 
     <!-- Sidebar -->
-    <%@ include file="../sidebar.jsp"%>
+    <%@ include file="../sidebar.jsp" %>
     <!-- End of Sidebar -->
 
     <!-- Content Wrapper -->
@@ -45,7 +46,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <%@ include file="../topbar2.jsp"%>
+            <%@ include file="../topbar2.jsp" %>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
@@ -65,17 +66,22 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
                                     <th width="10%">이름</th>
-                                    <td width="15%"><%=rental.getLesseeName()%></td>
+                                    <td width="15%"><%=rental.getLesseeName()%>
+                                    </td>
                                     <th width="10%">이메일</th>
-                                    <td width="30%"><%=rental.getLesseeEmail()%></td>
+                                    <td width="30%"><%=rental.getLesseeEmail()%>
+                                    </td>
                                     <th width="10%">생년월일</th>
-                                    <td width="25%"><%=rental.getLesseeAddress()%></td>
+                                    <td width="25%"><%=rental.getLesseeAddress()%>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>주소</th>
-                                    <td colspan="3"><%=rental.getLesseeAddress()%></td>
+                                    <td colspan="3"><%=rental.getLesseeAddress()%>
+                                    </td>
                                     <th>전화번호</th>
-                                    <td><%=rental.getLesseePhoneNumber()%></td>
+                                    <td><%=rental.getLesseePhoneNumber()%>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -91,7 +97,8 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
                                     <th width='8%'>대여소</th>
-                                    <td width='14%'><%=rental.getLocalInstitution()%></td>
+                                    <td width='14%'><%=rental.getLocalInstitution()%>
+                                    </td>
                                     <th width='10%'>대여물품</th>
                                     <td colspan="5"><% String rentalequip = "";
                                         if (rental.getRentalDetail().getTractor() > 0) {
@@ -125,13 +132,17 @@
                                 </tr>
                                 <tr>
                                     <th width='10%'>접수상태</th>
-                                    <td width='12%'><%=rental.getStatus()%></td>
+                                    <td width='12%'><%=rental.getStatus()%>
+                                    </td>
                                     <th width='13%'>접수일자</th>
-                                    <td width='13%'><%=rental.getApplied()%></td>
+                                    <td width='13%'><%=rental.getApplied()%>
+                                    </td>
                                     <th width='13%'>대여시작일</th>
-                                    <td width='13%'><%=rental.getStarted()%></td>
+                                    <td width='13%'><%=rental.getStarted()%>
+                                    </td>
                                     <th width='13%'>반납(예정)일</th>
-                                    <td width='13%'><%=rental.getDeadline()%></td>
+                                    <td width='13%'><%=rental.getDeadline()%>
+                                    </td>
                                 </tr>
                             </table>
                         </div>
@@ -144,9 +155,18 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <form id="updateStatusForm" class='form-group' action="/admin/update_status" method="post">
-                                <textarea class="form-control form-control-user" rows="4" name="staffComment"><%=rental.getRentalDetail().getStaffComment()%></textarea>
-                            </form>
+                            <div class="form-control form-control-user" rows="4" name="staffComment">
+                                <% if(rental.getRentalDetail().getStaffComment()==null) {
+                                %>
+                                <div style="color: #ff1002">
+                                   대여 승인 전입니다.
+                                </div>
+                                <%}else{%>
+                                <div><%=rental.getRentalDetail().getStaffComment()%></div>
+                                <%}%>
+                            </div>
+
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -154,19 +174,8 @@
         </div>
         <!-- End of Main Content -->
 
-        <!-- Footer -->
-        <footer class="sticky-footer bg-white">
-            <div class="container my-auto">
-                <div class="copyright text-center my-auto">
-                    <span>Copyright &copy; Your Website 2020</span>
-                </div>
-            </div>
-        </footer>
-        <!-- End of Footer -->
-
     </div>
     <!-- End of Content Wrapper -->
-
 </div>
 <!-- End of Page Wrapper -->
 
