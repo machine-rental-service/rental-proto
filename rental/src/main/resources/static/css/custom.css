@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+.row-table table th, .row-table table td , #dataTable th{
+	vertical-align: middle;
+}
+
+.row-table {
+	border-top: none!important;
+	margin-bottom: 20px;
+}
+
+a:link, a:active {
+	text-decoration: none !important;
+}
+
+.container {
+	min-height: 100%;
+	margin: -120px 0 -340px 0;
+	padding: 0;
+}
+
+a:visited, a:hover, a:focus, a:link, a:active {
+	color: white;
+}
+
+.fa-angle-up {
+	line-height: revert !important;
+}
+
+td#seoulToolList .btn {
+    color: #3a3b45;
+    background-color: #f8f9fc;
+    border-color: #f8f9fc;
+    border: 1px solid #e3e6f0!important;
+    cursor: default;
+}
+
+#toolList button {background:#bfc4ca; color:#fff; }
