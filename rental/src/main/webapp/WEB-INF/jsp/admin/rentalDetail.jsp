@@ -121,6 +121,10 @@
 										<button value="신청 승인" class="btn btn-primary btn-sm">승인</button>
 										<button value="신청 반려" class="btn btn-dark btn-sm">반려</button>
 									</c:when>
+									<c:when test="${rental.status eq '신청 승인'}">
+										<button value="반납 완료" class="btn btn-primary btn-sm">반납 처리</button>
+										<button value="modify" class="btn btn-dark btn-sm" type="button">코멘트 수정</button>
+									</c:when>
 									<c:otherwise>
 										<button value="modify" class="btn btn-dark btn-sm" type="button">코멘트 수정</button>
 									</c:otherwise>
