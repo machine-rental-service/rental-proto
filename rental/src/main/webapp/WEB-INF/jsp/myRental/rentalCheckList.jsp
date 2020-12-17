@@ -27,14 +27,15 @@
 
 </head>
 <body>
-<%@ include file="./navBar.jsp" %>
+<%--<%@ include file="./navBar.jsp" %>--%>
 <div id="wrapper">
-
+    <%@ include file="../sidebar.jsp"%>
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
 
         <!-- Main Content -->
         <div id="content">
+            <%@ include file="../topbar2.jsp"%>
             <br/>
             <!-- Begin Page Content -->
             <div class="container-fluid">
@@ -97,7 +98,7 @@
                         if(myRentalList.size()>0){%>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                 <thead>
                                 <tr>
                                     <th>연번</th>
@@ -175,7 +176,7 @@
         </div>
         <!-- End of Main Content -->
 
-        <%@ include file="./footer.jsp" %>
+        <%@ include file="../footer.jsp" %>
     </div>
     <!-- End of Content Wrapper -->
 

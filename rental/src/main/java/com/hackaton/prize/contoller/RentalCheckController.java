@@ -1,7 +1,6 @@
 package com.hackaton.prize.contoller;
 
 import com.hackaton.prize.domain.Rental;
-import com.hackaton.prize.domain.RentalDetail;
 import com.hackaton.prize.service.RentalCheckService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +30,7 @@ public class RentalCheckController {
         List<Rental> myRentalList=rentalCheckService.getMyRentalList(email);
         ModelAndView mav=new ModelAndView();
         mav.addObject("myRentalList",myRentalList);
-        mav.setViewName("rentalCheckList");
+        mav.setViewName("myRental/rentalCheckList");
         return mav;
     }
 
@@ -39,7 +38,7 @@ public class RentalCheckController {
     public String rentalCheckDetail(@PathVariable("id") Long id, Model model) {
         Rental rental=rentalCheckService.getRentalDetail(id);
         model.addAttribute("rental",rental);
-        return "rentalCheckDetail"; //jsp 폴더 이하의.jsp 파일을 기재해주시면됩니다.
+        return "myRental/rentalCheckDetail";
     }
 
 }
