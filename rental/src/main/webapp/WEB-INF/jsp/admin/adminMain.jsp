@@ -14,7 +14,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>SB Admin 2 - Tables</title>
+<title>공무원 모드 - 신청 목록</title>
 
 <!-- Custom fonts for this template -->
 <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -63,13 +63,13 @@
 								<table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 									<thead>
 										<tr>
-											<th>연번</th>
-											<th>신청번호</th>
-											<th>담당 대여소</th>
-											<th>대여중인 물품</th>
-											<th>대여자</th>
-											<th>접수일</th>
-											<th>상태</th>
+											<th width="7%">연번</th>
+											<th width="10%">신청번호</th>
+											<th width="15%">담당 대여소</th>
+											<th width="35%">대여중인 물품</th>
+											<th width="8%">대여자</th>
+											<th width="12%">접수일</th>
+											<th width="13%">상태</th>
 										</tr>
 									</thead>
 
@@ -118,11 +118,7 @@
 
 			<!-- Footer -->
 			<footer class="sticky-footer bg-white">
-				<div class="container my-auto">
-					<div class="copyright text-center my-auto">
-						<span>Copyright &copy; Your Website 2020</span>
-					</div>
-				</div>
+				<%@ include file="../footer.jsp"%>
 			</footer>
 			<!-- End of Footer -->
 
@@ -136,26 +132,6 @@
 	<a class="scroll-to-top rounded" href="#page-top">
 		<i class="fas fa-angle-up"></i>
 	</a>
-
-	<!-- Logout Modal-->
-	<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		<div class="modal-dialog" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-					<button class="close" type="button" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">×</span>
-					</button>
-				</div>
-				<div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-				<div class="modal-footer">
-					<button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-					<a class="btn btn-primary" href="login.html">Logout</a>
-				</div>
-			</div>
-		</div>
-	</div>
-
 
 	<!-- Bootstrap core JavaScript-->
 	<script src="../vendor/jquery/jquery.min.js"></script>

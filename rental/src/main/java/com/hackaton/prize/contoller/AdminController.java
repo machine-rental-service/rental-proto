@@ -54,7 +54,7 @@ public class AdminController {
 		}
 
 		adminService.updateStatus(rental, rentalDetail);
-
-		return "redirect:list";
+		String refreshNumber = id.toString();
+		return "redirect:rental_detail?id="+refreshNumber;
 	}
 }
