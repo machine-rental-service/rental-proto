@@ -1,20 +1,16 @@
 @charset "UTF-8";
 
-.row-table table th, .row-table table td {
+.row-table table th, .row-table table td , #dataTable th{
 	vertical-align: middle;
 }
 
-.step-list li.on strong {
-	background-color: #007bff;
-}
-
 .row-table {
-	border-top: none;
+	border-top: none!important;
 	margin-bottom: 20px;
 }
 
 a:link, a:active {
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 .container {
@@ -30,3 +26,13 @@ a:visited, a:hover, a:focus, a:link, a:active {
 .fa-angle-up {
 	line-height: revert !important;
 }
+
+td#seoulToolList .btn {
+    color: #3a3b45;
+    background-color: #f8f9fc;
+    border-color: #f8f9fc;
+    border: 1px solid #e3e6f0!important;
+    cursor: default;
+}
+
+#toolList button {background:#bfc4ca; color:#fff; }

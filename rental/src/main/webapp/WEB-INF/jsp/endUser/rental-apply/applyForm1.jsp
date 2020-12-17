@@ -45,7 +45,6 @@
 	$(function() {
 		//필수입력항목 미입력시 안내 메세지 숨김처리
 		$(".input-warning").hide();
-		$(".input-success").hide();
 	});
 </script>
 
@@ -70,18 +69,19 @@
 				<!-- Begin Page Content -->
 				<div class="container-fluid row-table">
 					<!-- Page Heading -->
+
+					<h1 class="h3 mb-2 text-gray-800 mb-4">생활공구/농기계 대여신청</h1>
+
+					<ol class="step-list row">
+						<li class="on col-6">
+							<strong class='rounded'>STEP1<span>신청인 정보</span></strong>
+						</li>
+						<li class='col-6'>
+							<strong class='rounded'>STEP2<span>대여 신청</span></strong>
+						</li>
+					</ol>
+
 					<form id='applayForm' action="step1" method="POST" onsubmit="return fn_next()">
-						<h1 class="h3 mb-2 text-gray-800 mb-4">생활공구/농기계 대여신청</h1>
-
-						<ol class="step-list row">
-							<li class="on col-6">
-								<strong>STEP1<span>신청인 정보</span></strong>
-							</li>
-							<li class='col-6'>
-								<strong>STEP2<span>대여 신청</span></strong>
-							</li>
-						</ol>
-
 						<!-- DataTales Example -->
 						<div class="card shadow mb-4">
 							<div class="card-header py-3">
@@ -96,7 +96,7 @@
 												<th width="15%"><label class="label req" for="lesseeName">이름</label></th>
 												<td width="85%">
 													<div class="">
-														<input type="text" title="이름" placeholder="ex) 김빌림" id="lesseeName" name="lesseeName" class="form-control form-control-user input-text" maxlength="11">
+														<input  type="text" title="이름" placeholder="ex) 김빌림" id="lesseeName" name="lesseeName" class="form-control form-control-user input-text" maxlength="11">
 														<div class="input-util">
 															<p class="input-warning text-danger">이름을 입력해주세요</p>
 														</div>
@@ -107,7 +107,7 @@
 												<th><label class="label req" for="lesseeBirthday">생년월일</label></th>
 												<td>
 													<div class="">
-														<input type="text" title="생년월일 입력" placeholder="ex) 970909" id="lesseeBirthday" name="lesseeBirthday" class="form-control form-control-user input-text" maxlength="6">
+														<input  type="text" title="생년월일 입력" placeholder="ex) 970909" id="lesseeBirthday" name="lesseeBirthday" class="form-control form-control-user input-text" maxlength="6">
 														<div class="input-util">
 															<p class="input-warning text-danger">생년월일을 입력해주세요</p>
 														</div>
@@ -118,7 +118,7 @@
 												<th><label for="lesseePhoneNumber" class="label req">연락처</label></th>
 												<td>
 													<div class="">
-														<input type="text" title="연락처1 입력" placeholder="ex) 010-5555-8282" id="lesseePhoneNumber" name="lesseePhoneNumber" class="form-control form-control-user input-text" maxlength="11">
+														<input  type="text" title="연락처 입력" placeholder="ex) 010-5555-8282" id="lesseePhoneNumber" name="lesseePhoneNumber" class="form-control form-control-user input-text">
 														<div class="input-util">
 															<p class="input-warning text-danger">연락처를 입력해주세요</p>
 														</div>
@@ -129,7 +129,7 @@
 												<th><label for="lesseeEmail" class="label req">이메일</label></th>
 												<td>
 													<div class="">
-														<input type="email" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail" name="lesseeEmail" class="form-control form-control-user input-text" maxlength="11">
+														<input type="email" title="이메일" placeholder="ex) billim@farm.com" id="lesseeEmail" name="lesseeEmail" class="form-control form-control-user input-text">
 														<div class="input-util">
 															<p class="input-warning text-danger">이메일을 입력해주세요</p>
 														</div>
@@ -154,7 +154,7 @@
 												<th width="15%"><label class="label req" for="lesseeAddress">거주지 주소</label></th>
 												<td width="85%">
 													<div class="">
-														<input type="text" title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트" id="lesseeAddress" name="lesseeAddress" class="form-control form-control-user input-text">
+														<input type="text"  title="주소(소재지) 입력" placeholder="ex) 사랑시 고백구 행복동 희망아파트" id="lesseeAddress" name="lesseeAddress" class="form-control form-control-user input-text">
 														<div class="input-util">
 															<p class="input-warning text-danger">주소를 입력해주세요</p>
 														</div>
@@ -165,11 +165,12 @@
 												<th><label class="label req" for='localInstiBtn'>권역 임대사무소</label></th>
 												<td>
 													<div class="row ml-0">
-														<input value='test' type="text" id="localInstitution" name="localInstitution" class="col-sm-10 form-control form-control-user input-text" readonly="readonly">
+														<input placeholder='우측 버튼으로 사무소를 찾아주세요' type="text" id="localInstitution" name="localInstitution" class="col-sm-10 form-control form-control-user input-text"
+															readonly="readonly">
 														<button id='localInstiBtn' type="button" class="btn btn-primary col-sm-2" onclick="findInstitution()">사무소 찾기</button>
 													</div>
 													<div class="input-util">
-															<p class="input-warning text-danger">사무소를 선택해주세요 (새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요)</p>
+														<p class="input-warning text-danger">사무소를 선택해주세요 (새 창이 뜨지 않을시, "팝업 해제"를 확인해주세요)</p>
 													</div>
 												</td>
 											</tr>
@@ -180,8 +181,8 @@
 						</div>
 
 						<div class="button-group a-c">
-							<a class="btn btn-secondary">임시저장</a>
-							<button type="submit" id='applaySubmitBtn' class="btn btn-primary">다음</button>
+							<button type="button" class="col-lg-2 rounded btn btn-secondary  btn-lg mr-4" disabled>임시저장</button>
+							<button type="submit" id='applaySubmitBtn' class="col-lg-2 rounded btn btn-primary  btn-lg">다음</button>
 						</div>
 					</form>
 				</div>
@@ -191,9 +192,7 @@
 			<!-- End of Main Content -->
 
 			<!-- Footer -->
-			<footer class="sticky-footer bg-white">
-				<%@ include file="../../footer.jsp"%>
-			</footer>
+			<%@ include file="../../footer.jsp"%>
 			<!-- End of Footer -->
 
 		</div>
@@ -231,15 +230,14 @@
 	<script src="../vendor/datatables/jquery-ui.min.js"></script>
 
 	<script type="text/javascript">
-	
 		function findInstitution() {
-			window.open("/institution/search", "주소검색", "");
+			window.open("/institution/search", "주소검색", "width=1200,height=500");
 		}
 
 		function setInstitution(keyword) {
 			document.getElementById("localInstitution").value = keyword;
 		}
-		
+
 		/**
 		 * 다음 버튼 누를 시
 		 */
