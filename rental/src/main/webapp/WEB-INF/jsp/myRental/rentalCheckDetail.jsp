@@ -46,7 +46,7 @@
         <div id="content">
 
             <!-- Topbar -->
-            <%@ include file="../topbar2.jsp" %>
+            <%@ include file="../user-topbar.jsp" %>
             <!-- End of Topbar -->
 
             <!-- Begin Page Content -->
