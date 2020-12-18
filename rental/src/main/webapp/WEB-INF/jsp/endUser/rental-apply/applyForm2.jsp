@@ -32,6 +32,11 @@
 <script src='//unpkg.com/jquery@3/dist/jquery.min.js'></script>
 <script src='//unpkg.com/popper.js@1/dist/umd/popper.min.js'></script>
 <script src='//unpkg.com/bootstrap@4/dist/js/bootstrap.min.js'></script>
+	<style type="text/css">
+		.red{
+			color: red;
+		}
+	</style>
 <script>
 	function findInstitution() {
 		window.open("/institution/search", "주소검색", "");
@@ -64,7 +69,7 @@
 			<!-- Main Content -->
 			<div id="content">
 				<!-- Topbar -->
-				<%@ include file="../../topbar.jsp"%>
+				<%@ include file="../../user-topbar.jsp"%>
 				<!-- End of Topbar -->
 				<!-- Begin Page Content -->
 				<div class="container-fluid row-table">
@@ -82,23 +87,14 @@
 					</ol>
 
 					<hr>
-					<ol id='toolList' class="step-list row">
-						<li class="col-6 ">
-							<button class='col-6 btn-lg ' value="farmInst">농기구 대여</button>
-						</li>
-						<li class="col-6 ">
-							<button class='col-6 btn-lg ' value="lifeInst">생활공구 대여</button>
-						</li>
-					</ol>
+
 
 					<form id='applay2Form' action="step2" method="POST" onsubmit="return send()">
 						<div class="card  border-bottom">
 							<div class="card-header py-3">
 								<h4 class="m-0 font-weight-bold text-primary">
 									<c:out value="${institution.name}" />
-									(
-									<c:out value="${institution.product}" />
-									) 를 선택하셨습니다.
+									를 선택하셨습니다.
 								</h4>
 								<h6 class='text-danger'>수령희망일을 꼭 선택해주세요!</h6>
 							</div>
@@ -113,6 +109,21 @@
 									<input id = 'started' name="started" type="date" class="form-control form-control-user input-text">
 									<p class="text-gray-600">반납일은 수령희망일로부터 3일 후입니다.</p>
 								</div>
+
+									<h5 class="m-0 font-weight-bold text-primary" style="padding-left: 40%; padding-bottom: 1rem">
+										<c:out value="${institution.product}" /> 대여 버튼을 눌러주세요.
+									</h5>
+
+
+								<ol id='toolList' class="step-list row">
+
+									<li class="col-6 ">
+										<button class='col-6 btn-lg ' value="farmInst" >농기구 대여</button>
+									</li>
+									<li class="col-6 ">
+										<button class='col-6 btn-lg ' value="lifeInst">생활공구 대여</button>
+									</li>
+								</ol>
 							</div>
 							<hr class='m-0'>
 							<div id='instDiv'>
@@ -256,21 +267,21 @@
 
 						<div class="card mb-1">
 							<div class="card-header py-3 border-bottom-danger">
-								<h5 class="m-0 font-weight-bold">주의사항</h5>
+								<h5 class="m-0 font-weight-bold red" >주의사항</h5>
 							</div>
 							<div class='mt-2'>
 								<div class='p-3'>
 									<h6 class='mb-2'>
-										1) 기본 대여 가능일은 <span class='font-weight-bold'>3</span>일입니다.
+										1) 기본 대여 가능일은 <span class='font-weight-bold red'>3</span>일입니다.
 									</h6>
 									<h6 class='mb-2'>
-										2) <span class='font-weight-bold'>추가 교육이수</span>가 필요할 수 있습니다.
+										2) <span class='font-weight-bold red'>추가 교육이수</span>가 필요할 수 있습니다.
 									</h6>
 									<h6 class='mb-2'>
-										3) 일부 농기계/공구는 <span class='font-weight-bold'>비용이 발생</span>합니다.
+										3) 일부 농기계/공구는 <span class='font-weight-bold red'>비용이 발생</span>합니다.
 									</h6>
 									<h6 class='mb-2'>
-										4) 대여는 <span class='font-weight-bold'>선착순</span>으로 진행됩니다. 재고가 없을시 신청 반려 될 수 있습니다.
+										4) 대여는 <span class='font-weight-bold red'>선착순</span>으로 진행됩니다. 재고가 없을시 신청 반려 될 수 있습니다.
 									</h6>
 								</div>
 							</div>

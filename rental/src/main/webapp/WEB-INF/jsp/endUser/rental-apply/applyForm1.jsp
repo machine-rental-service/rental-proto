@@ -64,7 +64,7 @@
 			<!-- Main Content -->
 			<div id="content">
 				<!-- Topbar -->
-				<%@ include file="../../topbar.jsp"%>
+				<%@ include file="../../user-topbar.jsp"%>
 				<!-- End of Topbar -->
 				<!-- Begin Page Content -->
 				<div class="container-fluid row-table">
@@ -165,7 +165,7 @@
 												<th><label class="label req" for='localInstiBtn'>권역 임대사무소</label></th>
 												<td>
 													<div class="row ml-0">
-														<input placeholder='우측 버튼으로 사무소를 찾아주세요' type="text" id="localInstitution" name="localInstitution" class="col-sm-10 form-control form-control-user input-text"
+														<input placeholder='우측 버튼으로 사무소를 찾아주세요(팝업창 해제필요)' type="text" id="localInstitution" name="localInstitution" class="col-sm-10 form-control form-control-user input-text"
 															readonly="readonly">
 														<button id='localInstiBtn' type="button" class="btn btn-primary col-sm-2" onclick="findInstitution()">사무소 찾기</button>
 													</div>

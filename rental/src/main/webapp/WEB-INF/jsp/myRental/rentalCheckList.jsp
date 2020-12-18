@@ -35,7 +35,7 @@
 
         <!-- Main Content -->
         <div id="content">
-            <%@ include file="../topbar2.jsp"%>
+            <%@ include file="../user-topbar.jsp"%>
             <br/>
             <!-- Begin Page Content -->
             <div class="container-fluid">
