@@ -110,20 +110,7 @@
 									<p class="text-gray-600">반납일은 수령희망일로부터 3일 후입니다.</p>
 								</div>
 
-									<h5 class="m-0 font-weight-bold text-primary" style="padding-left: 40%; padding-bottom: 1rem">
-										<c:out value="${institution.product}" /> 대여 버튼을 눌러주세요.
-									</h5>
-
-
-								<ol id='toolList' class="step-list row">
-
-									<li class="col-6 ">
-										<button class='col-6 btn-lg ' value="farmInst" >농기구 대여</button>
-									</li>
-									<li class="col-6 ">
-										<button class='col-6 btn-lg ' value="lifeInst">생활공구 대여</button>
-									</li>
-								</ol>
+								
 							</div>
 							<hr class='m-0'>
 							<div id='instDiv'>
