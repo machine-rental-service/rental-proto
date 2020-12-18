@@ -42,6 +42,7 @@ $(document).ready(function() {
 
 	$("#dataTable_filter").append("<select id='searchType' class='form-control-sm border'></select>");
 	$("#dataTable_filter select").append("<option value='1'>신청번호</option>");
+	$("#dataTable_filter select").append("<option value='2'>담당 대여소</option>");
 	$("#dataTable_filter select").append("<option value='4'>대여자</option>");
 	$("#dataTable_filter select").append("<option value='5'>접수일</option>");
 
