@@ -182,8 +182,13 @@
 
 </div>
 
-
-<!-- Bootstrap core JavaScript-->
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#dataTable_previous a').html("이전");
+			$('#dataTable_next a').html("다음");
+		});
+	</script>
+	<!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
