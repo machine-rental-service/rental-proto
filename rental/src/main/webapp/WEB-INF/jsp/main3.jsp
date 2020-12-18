@@ -38,9 +38,9 @@
     </div>
 </nav>
 <!-- navi 끝-->
-
+<div style="background-color: #EDEDED">
 <!-- 슬라이드 -->
-<header>
+<%--<header>
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -51,19 +51,19 @@
             <!-- Slide One - Set the background image for this slide in the line below -->
             <div class="carousel-item active" style="background-image: url('http://placehold.it/1900x1080')">
                 <div class="carousel-caption d-none d-md-block">
-                    <img src="img/1.jpg">
+                    <img src="img/main1.png" style="width: 100%;">
                 </div>
             </div>
             <!-- Slide Two - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
                 <div class="carousel-caption d-none d-md-block">
-                    <img src="img/1.jpg">
+                    <img src="img/main2.png">
                 </div>
             </div>
             <!-- Slide Three - Set the background image for this slide in the line below -->
             <div class="carousel-item" style="background-image: url('http://placehold.it/1900x1080')">
                 <div class="carousel-caption d-none d-md-block">
-                    <img src="img/1.jpg">
+                    <img src="">
                 </div>
             </div>
         </div>
@@ -76,13 +76,45 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
-</header>
+</header>--%>
 <!-- 슬라이드 끝-->
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="d-block w-100" src="img/main1.png" alt="First slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="img/main2.png" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+            <img class="d-block w-100" src="img/main3.png" alt="Third slide">
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
 
 <!-- 기능버튼 -->
-<div class="container">
+<div class="container" >
+
+
     <div class="row">
         <div class="card-body">
+            <h5>공공장비 온라인센터는</h5>
+            <h6>공공기관에서 실시하는 농기계 또는 생활 공구 대여를 온라인으로 신청할수 있도록 도와드립니다.</h6>
+                <h6>현재 프로토타입으로 축소운영중입니다.</h6>
+                    <h6>Chrome 브라우저 사용을 권장합니다.</h6>
             <ul>
                 <li>
                     <div class="col ml-5 mr-1">
@@ -154,7 +186,7 @@
         </ul>
     </div>
 </div>--%>
-
+</div>
 <%@ include file="footer.jsp" %>
 <!-- Bootstrap core JavaScript -->
 <script src="vendor/jquery/jquery.min.js"></script>
