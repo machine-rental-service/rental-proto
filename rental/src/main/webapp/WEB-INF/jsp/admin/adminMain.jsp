@@ -51,8 +51,8 @@
 				<div class="container-fluid">
 
 					<!-- Page Heading -->
-					<h1 class="h3 mb-2 text-gray-800 mb-4">[○○사무소/행정복지센터]</h1>
-					<h6>최고관리자 로그인 시, 모든 대여소 내역이 기본으로 출력됩니다.</h6>
+					<h2 class="h3 mb-2 text-gray-800 ">[○○사무소 / 행정복지센터]</h2>
+					<h6 class='ml-2 mb-4'>최고관리자 로그인 시, 모든 대여소 내역이 기본으로 출력됩니다.</h6>
 
 					<!-- DataTales Example -->
 					<div class="card shadow mb-4">
@@ -157,6 +157,9 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			$('#dataTable_previous a').html("이전");
+			$('#dataTable_next a').html("다음");
+				
 			$("#searchType").change(function() {
 				if ($(this).val() == '5') {
 					$("#peorid").show();
