@@ -83,7 +83,7 @@
 						기본 대여일은 3일입니다.<br>연장 시 관리자와 상의해주세요.
 					</div>
 				</a>
-				<a class="dropdown-item text-center small text-gray-500" href="#">Show All Alerts</a>
+				<a class="dropdown-item text-center small text-gray-500" href="#">모든 알림 보기</a>
 			</div>
 		</li>
 
@@ -136,7 +136,7 @@
 						<div class="small text-gray-500">최고관리자 · 2w</div>
 					</div>
 				</a>
-				<a class="dropdown-item text-center small text-gray-500" href="#">Read More Messages</a>
+				<a class="dropdown-item text-center small text-gray-500" href="#">모든 쪽지 확인하기</a>
 			</div>
 		</li>
 

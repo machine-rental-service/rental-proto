@@ -18,7 +18,7 @@
 	<!-- Nav Item - Dashboard -->
 	<li class="nav-item">
 		<a class="nav-link" href="/">
-			<i class="fas fa-fw fa-tachometer-alt"></i> <span>Dashboard(일반 메인으로)</span>
+			<i class="fas fa-fw fa-tachometer-alt"></i> <span>메인 화면으로 돌아가기</span>
 		</a>
 	</li>
 
