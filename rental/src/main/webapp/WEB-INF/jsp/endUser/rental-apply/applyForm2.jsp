@@ -93,7 +93,7 @@
 						<div class="card  border-bottom">
 							<div class="card-header py-3">
 								<h4 class="m-0 font-weight-bold text-primary">
-									<c:out value="${institution.name}" />
+									<c:out value="${institution.name}" />(<c:out value="${institution.product}" />)
 									를 선택하셨습니다.
 								</h4>
 								<h6 class='text-danger'>수령희망일을 꼭 선택해주세요!</h6>
@@ -109,154 +109,145 @@
 									<input id = 'started' name="started" type="date" class="form-control form-control-user input-text">
 									<p class="text-gray-600">반납일은 수령희망일로부터 3일 후입니다.</p>
 								</div>
-
-									<h5 class="m-0 font-weight-bold text-primary" style="padding-left: 40%; padding-bottom: 1rem">
-										<c:out value="${institution.product}" /> 대여 버튼을 눌러주세요.
-									</h5>
-
-
-								<ol id='toolList' class="step-list row">
-
-									<li class="col-6 ">
-										<button class='col-6 btn-lg ' value="farmInst" >농기구 대여</button>
-									</li>
-									<li class="col-6 ">
-										<button class='col-6 btn-lg ' value="lifeInst">생활공구 대여</button>
-									</li>
-								</ol>
 							</div>
 							<hr class='m-0'>
 							<div id='instDiv'>
-								<div id="farmInst" class="col-lg-12">
-									<div class="p-1">
-										<table class="" id="dataTable" class=' border-top'>
-											<tr>
-												<th width="15%" class='text-center'><label class="label ">트랙터</label></th>
-												<td width="35%">
-													<div class="input-ex-text ">
-														<input name="tractor" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.tractor}" />)
-														</span>
-													</div>
-												</td>
-												<th width="15%" class='text-center'><label class="label">경운기</label></th>
-												<td width="35%"><div class="input-ex-text ">
-														<input name="cultivator" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.cultivator}" /> )
-														</span>
-													</div></td>
-											</tr>
-											<tr>
-												<th class='text-center'><label class="label ">관리기</label></th>
-												<td>
-													<div class="input-ex-text ">
-														<input name="farmMaster" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.farmMaster}" />)
-														</span>
-													</div>
-												</td>
-												<th class='text-center'><label class="label">땅속작물수확기</label></th>
-												<td>
-													<div class="input-ex-text ">
-														<input name="undergroundCropExtractor" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.undergroundCropExtractor}" /> )
-														</span>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<th class='text-center'><label class="label ">탈곡기</label></th>
-												<td>
-													<div class="input-ex-text ">
-														<input name="thresher" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.thresher}" />)
-														</span>
-													</div>
-												</td>
-												<th class='text-center'><label class="label">자주형 종파기</label></th>
-												<td>
-													<div class="input-ex-text ">
-														<input name="sower" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.sower}" /> )
-														</span>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<th class='text-center'><label class="label ">이앙기</label></th>
-												<td>
-													<div class="input-ex-text ">
-														<input name="ricePlantingMachine" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.ricePlantingMachine}" />)
-														</span>
-													</div>
-												</td>
-												<th class='text-center'><label class="label">벼수확기</label></th>
-												<td>
-													<div class="input-ex-text ">
-														<input name="riceHarvester" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
-														<span class="ex-txt">(보유 수량: <c:out value="${institution.riceHarvester}" /> )
-														</span>
-													</div>
-												</td>
-											</tr>
-											<tr>
-												<th class='text-center'><label class="label">기타 임대 농기계<br>보유정보(미지원)<br>
-													<span class='small'>(사유: 표준데이터 불량)</span></label></th>
-												<td colspan="3">
-													<h6 class='bold'>데이터가 표준화되어있지 않아, 현재 지원하지 않고 있습니다.</h6> <small>https://www.data.go.kr/data/15017325/standard.do</small>
-													<div>
-														<img src="../../img/2.jpg">
-													</div>
-												</td>
-											</tr>
-										</table>
-									</div>
-								</div>
-								<div id='lifeInst' class="col-lg-12">
-									<div class="p-1">
-										<table class="" id="dataTable">
-											<tr>
-												<th width="15%" class='text-center'><label class="label">생활 공구<br>(부분시행중)<br> <span class='small'>(사유: 데이터 갱신 오래됨(2016년)&불량)</span></label></th>
-												<td width="85%">
-													<table class='dataTable'>
-														<tr>
-															<th width="25%" class='text-center'>서울시<br>집수리공구대여소<br>취급품
-															</th>
-															<td width="70%" id='seoulToolList'>
-																<p class='btn '>충전 햄머드릴(BLDC) 18V/5Ah</p>
-																<p class='btn '>충전 드라이버드릴(BLDC) 18V/5Ah</p>
-																<p class='btn '>임팩트 드릴 16mm</p>
-																<p class='btn '>드릴셋트33PCS</p>
-																<p class='btn '>공구셋트스마토 16PCS</p>
-																<p class='btn '>공구셋트스마토 25PCS</p>
-																<p class='btn '>치타접톱 (대)</p>
-																<p class='btn '>서울사다리 LS-43</p>
-																<p class='btn '>줄자 5.5M</p>
-																<p class='btn '>전선릴 30M</p>
-																<p class='btn '>막삽</p>
-																<p class='btn '>각삽</p>
-																<p class='btn '>톱 (톱날 265/300)</p>
-																<p class='btn '>컷쏘US-400XE</p>
-																<p class='btn '>(공업용)진공청소기(S-201) 220V 20L</p>
-																<p class='btn '>우마(수평작업발판) 300*1600mm</p>
-															</td>
-														</tr>
-														<tr>
-															<th class='text-center'>공구도서관<br>(사회복지관 또는 주민센터)
-															</th>
-															<td class='align-middle'>서울시 공구도서관(대여소)<span class='small text-gray-600'>http://data.seoul.go.kr/dataList/OA-13138/S/1/datasetView.do</span> 목록 참고
-															</td>
-														</tr>
-													</table>
-												</td>
-											</tr>
-											<tr>
-												<td colspan="2"><textarea rows="" cols="2" placeholder="ex) 니퍼(6# 2개), 막줄자(7.5m 2개)" name="otherToolsRequest" id="otherToolsRequest" class="form-control form-control-user input-text"></textarea>
-											</tr>
-										</table>
-									</div>
-								</div>
+								<c:choose>
+									<c:when test="${institution.product eq '농기계'}">
+										<div id="farmInst" class="col-lg-12">
+											<div class="p-1">
+												<table class="" id="dataTable" class=' border-top'>
+													<tr>
+														<th width="15%" class='text-center'><label class="label ">트랙터</label></th>
+														<td width="35%">
+															<div class="input-ex-text ">
+																<input name="tractor" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.tractor}" />)
+																</span>
+															</div>
+														</td>
+														<th width="15%" class='text-center'><label class="label">경운기</label></th>
+														<td width="35%"><div class="input-ex-text ">
+																<input name="cultivator" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.cultivator}" /> )
+																</span>
+															</div></td>
+													</tr>
+													<tr>
+														<th class='text-center'><label class="label ">관리기</label></th>
+														<td>
+															<div class="input-ex-text ">
+																<input name="farmMaster" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.farmMaster}" />)
+																</span>
+															</div>
+														</td>
+														<th class='text-center'><label class="label">땅속작물수확기</label></th>
+														<td>
+															<div class="input-ex-text ">
+																<input name="undergroundCropExtractor" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.undergroundCropExtractor}" /> )
+																</span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th class='text-center'><label class="label ">탈곡기</label></th>
+														<td>
+															<div class="input-ex-text ">
+																<input name="thresher" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.thresher}" />)
+																</span>
+															</div>
+														</td>
+														<th class='text-center'><label class="label">자주형 종파기</label></th>
+														<td>
+															<div class="input-ex-text ">
+																<input name="sower" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.sower}" /> )
+																</span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th class='text-center'><label class="label ">이앙기</label></th>
+														<td>
+															<div class="input-ex-text ">
+																<input name="ricePlantingMachine" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.ricePlantingMachine}" />)
+																</span>
+															</div>
+														</td>
+														<th class='text-center'><label class="label">벼수확기</label></th>
+														<td>
+															<div class="input-ex-text ">
+																<input name="riceHarvester" type="number" value="0" class='col-sm-11 form-control form-control-user input-text'>
+																<span class="ex-txt">(보유 수량: <c:out value="${institution.riceHarvester}" /> )
+																</span>
+															</div>
+														</td>
+													</tr>
+													<tr>
+														<th class='text-center'><label class="label">기타 임대 농기계<br>보유정보(미지원)<br> <span class='small'>(사유: 표준데이터 불량)</span></label></th>
+														<td colspan="3">
+															<h6 class='bold'>데이터가 표준화되어있지 않아, 현재 지원하지 않고 있습니다.</h6> <small>https://www.data.go.kr/data/15017325/standard.do</small>
+															<div>
+																<img src="../../img/2.jpg">
+															</div>
+														</td>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div id='lifeInst' class="col-lg-12">
+											<div class="p-1">
+												<table class="" id="dataTable">
+													<tr>
+														<th width="15%" class='text-center'><label class="label">생활공구<br>(부분시행중)<br> <span class='small'>(사유: 데이터 갱신 오래됨(2016년)&불량)</span></label></th>
+														<td width="85%">
+															<table class='dataTable'>
+																<tr>
+																	<th width="25%" class='text-center'>서울시<br>집수리공구대여소<br>취급품
+																	</th>
+																	<td width="70%" id='seoulToolList'>
+																		<p class='btn '>충전 햄머드릴(BLDC) 18V/5Ah</p>
+																		<p class='btn '>충전 드라이버드릴(BLDC) 18V/5Ah</p>
+																		<p class='btn '>임팩트 드릴 16mm</p>
+																		<p class='btn '>드릴셋트33PCS</p>
+																		<p class='btn '>공구셋트스마토 16PCS</p>
+																		<p class='btn '>공구셋트스마토 25PCS</p>
+																		<p class='btn '>치타접톱 (대)</p>
+																		<p class='btn '>서울사다리 LS-43</p>
+																		<p class='btn '>줄자 5.5M</p>
+																		<p class='btn '>전선릴 30M</p>
+																		<p class='btn '>막삽</p>
+																		<p class='btn '>각삽</p>
+																		<p class='btn '>톱 (톱날 265/300)</p>
+																		<p class='btn '>컷쏘US-400XE</p>
+																		<p class='btn '>(공업용)진공청소기(S-201) 220V 20L</p>
+																		<p class='btn '>우마(수평작업발판) 300*1600mm</p>
+																	</td>
+																</tr>
+																<tr>
+																	<th class='text-center'>그외 공구대여소 취급품</th>
+																	<td class='align-middle text-gray-900'>대여를 원하는 장비가 있는지 목록<span class='small text-gray-600'>(http://data.seoul.go.kr/dataList/OA-13138/S/1/datasetView.do)</span>에서 확인 후 아래 입력칸에
+																		적어주세요
+																	</td>
+																</tr>
+															</table>
+														</td>
+													</tr>
+													<tr>
+														<td colspan="2"><textarea rows="" cols="2" placeholder="ex) 니퍼(6# 2개), 막줄자(7.5m 2개)" name="otherToolsRequest" id="otherToolsRequest"
+																class="form-control form-control-user input-text"></textarea>
+													</tr>
+												</table>
+											</div>
+										</div>
+									</c:otherwise>
+								</c:choose>
 							</div>
 
 						</div>
@@ -317,23 +308,6 @@
 	<!-- 	여있었음 -->
 
 	<script type="text/javascript">
-		$(document).ready(function() {
-			$("#instDiv>div").hide();
-		});
-
-		$('#toolList button').click(function(e) {
-			e.preventDefault();
-			/* 기존 거 숨기기 */
-			$("#instDiv>div").hide();
-			$('#toolList button').css('background-color', '');
-
-			$(this).css('background-color', '#4e73df');
-
-			var selectedForm = '#' + $(this).val();
-
-			$(selectedForm).show();
-		});
-
 		function send(){
 			if($("#started").val() == null || $("#started").val() == ''){
 				 alert("희망대여일을 선택해주세요!");

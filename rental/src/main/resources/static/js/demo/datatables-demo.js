@@ -48,7 +48,7 @@ $(document).ready(function() {
 	$("#dataTable_filter").append("<span id='peorid'><input id='from' type='date' class='form-control-sm border'>~<input id='to' type='date' class='form-control-sm border ml-0'></span>");
 	$("#peorid").hide();
 
-	$("#dataTable_filter").append("<input id='searchValue' type='search' class='form-control form-control-sm border' placeholder='검색어를 입력하세요.' aria-controls='dataTable'>");
+	$("#dataTable_filter").append("<input id='searchValue' type='search' class='form-control form-control-sm border w-50' placeholder='검색어 입력 후 Enter 입력하세요.' aria-controls='dataTable'>");
 
 	$("#searchValue, #searchType").on('keyup, change', function() {
 		var numCols = table.columns().nodes().length;
