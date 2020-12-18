@@ -92,7 +92,7 @@
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
                     <div class="card-header py-3">
-                        <h5 class="m-0 font-weight-bold text-primary">대여 승인 목록</h5>
+                        <h5 class="m-0 font-weight-bold text-primary">내 대여 신청 목록</h5>
                     </div>
                     <% List<Rental> myRentalList = (List<Rental>) request.getAttribute("myRentalList");
                         if(myRentalList.size()>0){%>
