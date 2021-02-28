@@ -1,7 +1,7 @@
 # 공공데이터 해커톤 프로젝트 "공공장비 온라인센터"의 repository입니다
 2020공공데이터 청년인턴십 해커톤 대상(서비스트랙)
 - presentation video: https://youtu.be/0CWuCquWNDI
-reference material: [발표자료.ppt](https://github.com/machine-rental-service/rental-proto/blob/dev/%EB%B3%B8%EC%84%A0_%EA%B3%B5%EA%B3%B5%EC%9E%A5%EB%B9%84%EC%98%A8%EB%9D%BC%EC%9D%B8%EC%84%BC%ED%84%B0_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)
+- reference material: [발표자료ppt.pdf](https://github.com/machine-rental-service/rental-proto/blob/dev/%EB%B3%B8%EC%84%A0_%EA%B3%B5%EA%B3%B5%EC%9E%A5%EB%B9%84%EC%98%A8%EB%9D%BC%EC%9D%B8%EC%84%BC%ED%84%B0_%EB%B0%9C%ED%91%9C%EC%9E%90%EB%A3%8C.pdf)
 https://www.data.go.kr/의 전국농기계임대정보표준데이터, 서울시 공구도서관 등의 공공데이터로, 전국 어디에서나 공공장비 임대를 온라인으로 신청가능한 서비스를 만들었습니다.
 
 ---------
