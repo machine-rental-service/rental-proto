@@ -27,18 +27,15 @@ public class AdminService {
 
 	public Rental getRental(Long id) {
 		Optional<Rental> rentalWrapper = rentalRepository.findById(id);
-
 		return rentalWrapper.get();
 	}
 
 	public void updateStatus(Rental rental, RentalDetail rentalDetail) {
 		rentalRepository.save(rental);
-		rentalDetailRepository.save(rentalDetail);
 	}
 
 	public List<Rental> getRentalList() {
 		List<Rental> rentalList = rentalRepository.findAllByOrderByIdDesc();
-		
 		return rentalList;
 	}
 }

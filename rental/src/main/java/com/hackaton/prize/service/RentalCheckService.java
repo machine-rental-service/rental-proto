@@ -16,8 +16,8 @@ public class RentalCheckService {
     RentalRepository rentalRepository;
 
     public List<Rental> getMyRentalList(String email) {
-       List<Rental> myRentalList=new LinkedList<>();
-       myRentalList=rentalRepository.findBylesseeEmail(email);
+       List<Rental> myRentalList= new LinkedList<>();
+       myRentalList=rentalRepository.findByLesseeEmail(email);
        return myRentalList;
     }
 
