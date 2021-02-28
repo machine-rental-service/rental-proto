@@ -1,6 +1,6 @@
 server:
   port: 8080
-
+  
 spring:
   mvc:
     view:
@@ -8,9 +8,9 @@ spring:
       suffix: .jsp
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: "jdbc:mysql://localhost:3306/rental?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC"
-    username: root
-    password: root
+    url: "jdbc:mysql://b26a1e62c55151:9aa26d0e@us-cdbr-east-02.cleardb.com/heroku_fb092e901eaad43?reconnect=true&useUnicode=true&characterEncoding=UTF-8"
+    username: b26a1e62c55151
+    password: plz-contact-sodaMelon
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
     properties:

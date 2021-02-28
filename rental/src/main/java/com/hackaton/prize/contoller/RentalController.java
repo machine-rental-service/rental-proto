@@ -35,10 +35,10 @@ public class RentalController {
 
     @PostMapping(value = "/step2") //대여 접수 폼 2단계 수집정보 저장 후, 해당 접수 조회 페이지로 이동
     public String saveRentalData(Model model, RentalDetailDto rentalDetailDto, HttpSession session) {
-
         RentalDto rentalDto = (RentalDto) session.getAttribute("lesseeData");
         String rentalIdNumber = makeRentalService.merge(rentalDetailDto,rentalDto);
-        return "redirect:../rentalCheckDetail/"+rentalIdNumber ; //2단계 폼으로 이동
+        return "redirect:../rentalCheckDetail?id="+ rentalIdNumber; //2단계 폼으로 이동
+
     }
 
 

@@ -15,7 +15,7 @@ import java.util.List;
 public interface RentalRepository extends JpaRepository<Rental, Long> {
 	List<Rental> findByAppliedBetween(LocalDate satrt, LocalDate end);
 
-    List<Rental> findBylesseeEmail(String lesseeEmail);
+    List<Rental> findByLesseeEmail(String lesseeEmail);
 
     List<Rental> findAllByOrderByIdDesc();
 }

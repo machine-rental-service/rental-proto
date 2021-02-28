@@ -62,25 +62,24 @@
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            <% Rental rental = (Rental) request.getAttribute("rental"); %>
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
                                     <th width="10%">이름</th>
-                                    <td width="15%"><%=rental.getLesseeName()%>
+                                    <td width="15%">${rental.lesseeName}
                                     </td>
                                     <th width="10%">이메일</th>
-                                    <td width="30%"><%=rental.getLesseeEmail()%>
+                                    <td width="30%">${rental.lesseeEmail}
                                     </td>
                                     <th width="10%">생년월일</th>
-                                    <td width="25%"><%=rental.getLesseeAddress()%>
+                                    <td width="25%">${rental.lesseeBirthday}
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>주소</th>
-                                    <td colspan="3"><%=rental.getLesseeAddress()%>
+                                    <td colspan="3">${rental.lesseeAddress}
                                     </td>
                                     <th>전화번호</th>
-                                    <td><%=rental.getLesseePhoneNumber()%>
+                                    <td>${rental.lesseePhoneNumber}
                                     </td>
                                 </tr>
                             </table>
@@ -97,51 +96,28 @@
                             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                 <tr>
                                     <th width='8%'>대여소</th>
-                                    <td width='14%'><%=rental.getLocalInstitution()%>
+                                    <td width='14%'>${rental.localInstitution}
                                     </td>
                                     <th width='10%'>대여물품</th>
-                                    <td colspan="5"><% String rentalequip = "";
-                                        if (rental.getRentalDetail().getTractor() > 0) {
-                                            rentalequip += "트랙터 " + rental.getRentalDetail().getTractor() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getCultivator() > 0) {
-                                            rentalequip += "경운기 " + rental.getRentalDetail().getCultivator() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getFarmMaster() > 0) {
-                                            rentalequip += "관리기 " + rental.getRentalDetail().getFarmMaster() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getUndergroundCropExtractor() > 0) {
-                                            rentalequip += "땅속작물수확기 " + rental.getRentalDetail().getUndergroundCropExtractor() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getThresher() > 0) {
-                                            rentalequip += "탈곡기 " + rental.getRentalDetail().getThresher() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getSower() > 0) {
-                                            rentalequip += "자주형 종파기 " + rental.getRentalDetail().getSower() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getRicePlantingMachine() > 0) {
-                                            rentalequip += "이앙 작업기 " + rental.getRentalDetail().getRicePlantingMachine() + " / ";
-                                        }
-                                        if (rental.getRentalDetail().getRiceHarvester() > 0) {
-                                            rentalequip += "벼 수확기 " + rental.getRentalDetail().getRiceHarvester() + " / ";
-                                        }
-                                        if (!rental.getRentalDetail().getOtherToolsRequest().equals("")) {
-                                            rentalequip += "" + rental.getRentalDetail().getOtherToolsRequest();
-                                        }
-                                    %></td>
+                                    <td colspan="5"><c:if test="${rental.rentalDetail.tractor>0}">트랙터 ${rental.rentalDetail.tractor} </c:if> <c:if test="${rental.rentalDetail.cultivator>0}">경운기 ${rental.rentalDetail.cultivator} </c:if>
+                                        <c:if test="${rental.rentalDetail.farmMaster>0}">관리기 ${rental.rentalDetail.farmMaster} </c:if> <c:if test="${rental.rentalDetail.undergroundCropExtractor>0}">땅속작물수확기 ${rental.rentalDetail.undergroundCropExtractor}</c:if>
+                                        <c:if test="${rental.rentalDetail.thresher>0}">탈곡기 ${rental.rentalDetail.thresher}</c:if> <c:if test="${rental.rentalDetail.sower>0}">자주형 종파기 ${rental.rentalDetail.sower}</c:if> <c:if
+                                                test="${rental.rentalDetail.ricePlantingMachine>0}">이앙 작업기 ${rental.rentalDetail.ricePlantingMachine}</c:if> <c:if test="${rental.rentalDetail.riceHarvester>0}">벼 수확기 ${rental.rentalDetail.riceHarvester}</c:if>
+                                        <c:if test="${rental.rentalDetail.otherToolsRequest ne null}">${rental.rentalDetail.otherToolsRequest}</c:if></td>
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th width='10%'>접수상태</th>
-                                    <td width='12%'><%=rental.getStatus()%>
+                                    <td width='12%'>${rental.status}
                                     </td>
                                     <th width='13%'>접수일자</th>
-                                    <td width='13%'><%=rental.getApplied()%>
+                                    <td width='13%'>${rental.applied}
                                     </td>
                                     <th width='13%'>대여시작일</th>
-                                    <td width='13%'><%=rental.getStarted()%>
+                                    <td width='13%'>${rental.started}
                                     </td>
                                     <th width='13%'>반납(예정)일</th>
-                                    <td width='13%'><%=rental.getDeadline()%>
+                                    <td width='13%'>${rental.deadline}
                                     </td>
                                 </tr>
                             </table>
@@ -156,14 +132,7 @@
                     <div class="card-body">
                         <div class="form-group">
                             <div class="form-control form-control-user" rows="4" name="staffComment">
-                                <% if(rental.getRentalDetail().getStaffComment()==null) {
-                                %>
-                                <div style="color: #ff1002">
-                                   대여 승인 전입니다.
-                                </div>
-                                <%}else{%>
-                                <div><%=rental.getRentalDetail().getStaffComment()%></div>
-                                <%}%>
+                                <div>${rental.rentalDetail.staffComment}</div>
                             </div>
 
                             </div>
