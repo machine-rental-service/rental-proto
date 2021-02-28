@@ -2,6 +2,9 @@
 <%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 
 <!DOCTYPE html>
 <head>
@@ -94,8 +97,7 @@
                     <div class="card-header py-3">
                         <h5 class="m-0 font-weight-bold text-primary">내 대여 신청 목록</h5>
                     </div>
-                    <% List<Rental> myRentalList = (List<Rental>) request.getAttribute("myRentalList");
-                        if(myRentalList.size()>0){%>
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
@@ -111,63 +113,43 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <%
-                                    for (int i = 0; i < myRentalList.size(); i++) {
-                                %>
-                                <tr onclick="location.href='rentalCheckDetail/<%=myRentalList.get(i).getId()%>'">
-                                    <td><%=i + 1%>
-                                    </td>
-                                    <td><%=myRentalList.get(i).getId()%>
-                                    </td>
-                                    <td><%=myRentalList.get(i).getLocalInstitution()%>
-                                    </td>
-                                    <td>
-                                        <% String rentalequip = "";
-                                            if (myRentalList.get(i).getRentalDetail().getTractor() > 0) {
-                                                rentalequip += "트랙터 " + myRentalList.get(i).getRentalDetail().getTractor() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getCultivator() > 0) {
-                                                rentalequip += "경운기 " + myRentalList.get(i).getRentalDetail().getCultivator() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getFarmMaster() > 0) {
-                                                rentalequip += "관리기 " + myRentalList.get(i).getRentalDetail().getFarmMaster() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getUndergroundCropExtractor() > 0) {
-                                                rentalequip += "땅속작물수확기 " + myRentalList.get(i).getRentalDetail().getUndergroundCropExtractor() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getThresher() > 0) {
-                                                rentalequip += "탈곡기 " + myRentalList.get(i).getRentalDetail().getThresher() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getSower() > 0) {
-                                                rentalequip += "자주형 종파기 " + myRentalList.get(i).getRentalDetail().getSower() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getRicePlantingMachine() > 0) {
-                                                rentalequip += "이앙 작업기 " + myRentalList.get(i).getRentalDetail().getRicePlantingMachine() + " / ";
-                                            }
-                                            if (myRentalList.get(i).getRentalDetail().getRiceHarvester() > 0) {
-                                                rentalequip += "벼 수확기 " + myRentalList.get(i).getRentalDetail().getRiceHarvester() + " / ";
-                                            }
-                                            if (!myRentalList.get(i).getRentalDetail().getOtherToolsRequest().equals("")) {
-                                                rentalequip += "" + myRentalList.get(i).getRentalDetail().getOtherToolsRequest();
-                                            }
-                                        %>
-                                        <%=rentalequip%>
-                                    </td>
-                                    <td><%=myRentalList.get(i).getLesseeName()%>
-                                    </td>
-                                    <td><%=myRentalList.get(i).getApplied()%>
-                                    </td>
-                                    <td><%=myRentalList.get(i).getStatus()%>
-                                    </td>
+                                <c:choose>
+                                    <c:when test="${fn:length(myRentalList) > 0}">
+                                        <c:forEach var="rental" items="${myRentalList}" varStatus="status">
+                                <tr>
+                                    <td>${status.count}</td>
+                                    <td>${rental.id}</td>
+                                    <td>${rental.localInstitution}</td>
+                                    <td><a href="/rentalCheckDetail?id=${rental.id}">
+                                        <c:if test="${rental.rentalDetail.tractor>0}">트랙터 ${rental.rentalDetail.tractor} </c:if>
+                                        <c:if test="${rental.rentalDetail.cultivator>0}">경운기 ${rental.rentalDetail.cultivator} </c:if>
+                                        <c:if test="${rental.rentalDetail.farmMaster>0}">관리기 ${rental.rentalDetail.farmMaster} </c:if>
+                                        <c:if test="${rental.rentalDetail.undergroundCropExtractor>0}">땅속작물수확기 ${rental.rentalDetail.undergroundCropExtractor}</c:if>
+                                        <c:if test="${rental.rentalDetail.thresher>0}">탈곡기 ${rental.rentalDetail.thresher}</c:if>
+                                        <c:if test="${rental.rentalDetail.sower>0}">자주형 종파기 ${rental.rentalDetail.sower}</c:if>
+                                        <c:if test="${rental.rentalDetail.ricePlantingMachine>0}">이앙 작업기 ${rental.rentalDetail.ricePlantingMachine}</c:if>
+                                        <c:if test="${rental.rentalDetail.riceHarvester>0}">벼 수확기 ${rental.rentalDetail.riceHarvester}</c:if>
+                                        <c:if test="${rental.rentalDetail.otherToolsRequest ne null}">${rental.rentalDetail.otherToolsRequest}</c:if>
+                                    </a></td>
+                                    <td>${rental.lesseeName}</td>
+                                    <td>${rental.applied}</td>
+                                    <td>${rental.status}</td>
                                 </tr>
-                                <% }%>
+                                </c:forEach>
+                                </c:when>
+                                <c:otherwise>
+                                    <tr>
+                                        <td class="text-center" colspan="7">데이터가 존재하지 않습니다.</td>
+                                    </tr>
+                                </c:otherwise>
+                                </c:choose>
+                              </tr>
+
                                 </tbody>
                             </table>
                         </div>
                     </div>
-                    <%}else{%>
-                    <div class="card-body"><span><h6> [내 대여 현황 조회] 에서 이메일을 입력하세요.</h6></span></div>
-                    <%}%>
+
                 </div>
 
             </div>
@@ -182,13 +164,13 @@
 
 </div>
 
-	<script type="text/javascript">
-		$(document).ready(function() {
-			$('#dataTable_previous a').html("이전");
-			$('#dataTable_next a').html("다음");
-		});
-	</script>
-	<!-- Bootstrap core JavaScript-->
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#dataTable_previous a').html("이전");
+        $('#dataTable_next a').html("다음");
+    });
+</script>
+<!-- Bootstrap core JavaScript-->
 <script src="vendor/jquery/jquery.min.js"></script>
 <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
