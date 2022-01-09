@@ -20,8 +20,11 @@ import com.hackaton.prize.service.AdminService;
 @RequestMapping("/admin")
 public class AdminController {
 
-	@Autowired
-	private AdminService adminService;
+	private final AdminService adminService;
+
+	public AdminController(AdminService adminService) {
+		this.adminService = adminService;
+	}
 
 	@RequestMapping("/list")
 	public String uiList(Model model) {
