@@ -3,8 +3,8 @@ package com.hackaton.prize.domain;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.assertj.core.api.Assertions.assertThat;
 
 class RentalTest {
 
@@ -23,6 +23,6 @@ class RentalTest {
         Throwable exception = assertThrows(NullPointerException.class, () -> {
             throw new NullPointerException("newRentalDetail NULL!!");
         });
-        assertEquals(exception.getMessage(), "newRentalDetail NULL!!");
+        assertThat(exception.getMessage()).isEqualTo("newRentalDetail NULL!!");
     }
 }
