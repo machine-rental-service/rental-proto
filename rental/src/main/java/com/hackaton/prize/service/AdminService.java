@@ -1,5 +1,7 @@
 package com.hackaton.prize.service;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
@@ -15,12 +17,11 @@ import com.hackaton.prize.infrastructure.repository.RentalRepository;
 public class AdminService {
 
 	private final RentalRepository rentalRepository;
+	private String modifyFunctionMessage= "modify"; // function - modify가 아니라면 rental 상태까지 수정
+	private String KoreaTimeZone = "Asia/Seoul";
 
-	private RentalDetailRepository rentalDetailRepository;
-
-	public AdminService(RentalRepository rentalRepository, RentalDetailRepository rentalDetailRepository) {
+	public AdminService(RentalRepository rentalRepository) {
 		this.rentalRepository = rentalRepository;
-		this.rentalDetailRepository = rentalDetailRepository;
 	}
 
 	public Rental getRental(Long id) {
@@ -28,8 +29,17 @@ public class AdminService {
 		return rentalWrapper.get();
 	}
 
-	public void updateStatus(Rental rental, RentalDetail rentalDetail) {
-		rentalRepository.save(rental);
+	public long updateStatus(Long id, String function, String staffComment){
+		Rental rental = getRental(id);
+		RentalDetail rentalDetail = rental.getRentalDetail();
+		rentalDetail.setStaffComment(staffComment);
+		rentalDetail.setStaffApproved(LocalDate.now(ZoneId.of(KoreaTimeZone)));
+
+		if (!function.equals(modifyFunctionMessage)) {
+			rental.setStatus(function);
+		}
+		rental=rentalRepository.save(rental);
+		return rental.getId();
 	}
 
 	public List<Rental> getRentalList() {

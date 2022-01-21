@@ -28,11 +28,8 @@ public class AdminController {
 
 	@RequestMapping("/list")
 	public String uiList(Model model) {
-
 		List<Rental> rentalList = adminService.getRentalList();
-
 		model.addAttribute("rentalList", rentalList);
-
 		return "admin/adminMain";
 	}
 
@@ -44,20 +41,9 @@ public class AdminController {
 	}
 
 	@PostMapping("/update_status")
-	public String update(@RequestParam(value = "staffComment") String staffComment, @RequestParam(value = "id") Long id, @RequestParam(value = "func") String func) {
-		Rental rental = adminService.getRental(id);
-		RentalDetail rentalDetail = rental.getRentalDetail();
-
-		rentalDetail.setStaffComment(staffComment);
-		rentalDetail.setStaffApproved(LocalDate.now(ZoneId.of("Asia/Seoul")));
-
-		// func - modify가 아니라면 rental 상태까지 수정
-		if (!func.equals("modify")) {
-			rental.setStatus(func);
-		}
-
-		adminService.updateStatus(rental, rentalDetail);
-		String refreshNumber = id.toString();
-		return "redirect:rental_detail?id="+refreshNumber;
+	public String update(@RequestParam(value = "staffComment") String staffComment, @RequestParam(value = "id") Long id,
+						 @RequestParam(value = "func") String function) {
+		Long refreshNumber = adminService.updateStatus(id, function, staffComment);
+		return "redirect:rental_detail?id="+refreshNumber.toString();
 	}
 }

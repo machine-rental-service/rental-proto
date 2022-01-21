@@ -19,15 +19,10 @@ import java.util.List;
 public class RentalCheckController {
 
     private final RentalCheckService rentalCheckService;
-
-    private final RentalDetailRepository rentalDetailRepository; //todo:컨트롤러에 노출될필요 없으므로 리팩토링필요
-
     private final AdminService adminService;
 
-    public RentalCheckController(RentalCheckService rentalCheckService,
-                                 RentalDetailRepository rentalDetailRepository, AdminService adminService) {
+    public RentalCheckController(RentalCheckService rentalCheckService, AdminService adminService) {
         this.rentalCheckService = rentalCheckService;
-        this.rentalDetailRepository = rentalDetailRepository;
         this.adminService = adminService;
     }
 
