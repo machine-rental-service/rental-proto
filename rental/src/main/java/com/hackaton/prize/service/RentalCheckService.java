@@ -12,17 +12,14 @@ import java.util.Optional;
 @Service
 public class RentalCheckService {
 
-    @Autowired
-    RentalRepository rentalRepository;
+    private final RentalRepository rentalRepository;
 
-    public List<Rental> getMyRentalList(String email) {
-       List<Rental> myRentalList= new LinkedList<>();
-       myRentalList=rentalRepository.findByLesseeEmail(email);
-       return myRentalList;
+    public RentalCheckService(RentalRepository rentalRepository) {
+        this.rentalRepository = rentalRepository;
     }
 
-    public Rental getRentalDetail(long id) {
-        Optional<Rental> rentalDetail = rentalRepository.findById(id);
-        return rentalDetail.get();
+    public List<Rental> getMyRentalList(String email) {
+       List<Rental> myRentalList = rentalRepository.findByLesseeEmail(email);
+       return myRentalList;
     }
 }

@@ -15,23 +15,15 @@ import java.time.LocalDateTime;
 @Service
 public class MakeRentalService {
 
-    @Autowired
-    RentalRepository rentalRepository;
+    private final String defaultStatus = "승인 대기중"; //TO DO: 상태 enum값으로 정리
 
-    @Autowired
-    InstitutionRepository institutionRepository;
+    private final RentalRepository rentalRepository;
 
-    String defaultStatus = "승인 대기중";
-    String whiteSpace = " ";
+    private final InstitutionRepository institutionRepository;
 
-    public void makeDummy() {
-        Rental sampleRental = new Rental();
-
-        RentalDetail sampleDetail = new RentalDetail();
-        sampleDetail.setStaffComment("detail comment");
-
-        sampleRental.setRentalDetail(sampleDetail);
-        rentalRepository.save(sampleRental);
+    public MakeRentalService(RentalRepository rentalRepository, InstitutionRepository institutionRepository) {
+        this.rentalRepository = rentalRepository;
+        this.institutionRepository = institutionRepository;
     }
 
     public Institution getInstitutionInformation(String name){
@@ -40,9 +32,6 @@ public class MakeRentalService {
     }
 
     public String merge(RentalDetailDto detailDto, RentalDto rentalDto) {
-        LocalDateTime serverTime = LocalDateTime.now();
-        int currentHour = serverTime.getHour();
-
         Rental rental = Rental.builder()
                 .lesseeName(rentalDto.getLesseeName())
                 .lesseeBirthday(rentalDto.getLesseeBirthday())
@@ -71,7 +60,6 @@ public class MakeRentalService {
         rental.setRentalDetail(detail);
         rentalRepository.save(rental);
         String idNumber = rental.getId().toString();
-
         return idNumber;
     }
 }

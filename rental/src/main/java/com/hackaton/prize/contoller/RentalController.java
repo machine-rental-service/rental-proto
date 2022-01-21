@@ -17,8 +17,11 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/apply")
 public class RentalController {
 
-    @Autowired
-    MakeRentalService makeRentalService;
+    private final MakeRentalService makeRentalService;
+
+    public RentalController(MakeRentalService makeRentalService) {
+        this.makeRentalService = makeRentalService;
+    }
 
     @GetMapping(value = "/step1")
     public String moveRentalForm() {

@@ -18,13 +18,19 @@ import java.util.List;
 @Controller
 public class RentalCheckController {
 
-    @Autowired
-    RentalCheckService rentalCheckService;
-    @Autowired
-    RentalDetailRepository rentalDetailRepository;
+    private final RentalCheckService rentalCheckService;
 
-    @Autowired
-    AdminService adminService;
+    private final RentalDetailRepository rentalDetailRepository; //todo:컨트롤러에 노출될필요 없으므로 리팩토링필요
+
+    private final AdminService adminService;
+
+    public RentalCheckController(RentalCheckService rentalCheckService,
+                                 RentalDetailRepository rentalDetailRepository, AdminService adminService) {
+        this.rentalCheckService = rentalCheckService;
+        this.rentalDetailRepository = rentalDetailRepository;
+        this.adminService = adminService;
+    }
+
 
     @RequestMapping(value = "/rentalCheck")
     public String rentalCheck() {
