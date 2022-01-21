@@ -2,6 +2,7 @@ package com.hackaton.prize.contoller;
 
 import com.hackaton.prize.domain.Institution;
 import com.hackaton.prize.infrastructure.repository.InstitutionRepository;
+import com.hackaton.prize.service.ManageInstitutionService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -14,10 +15,10 @@ import java.util.List;
 @RequestMapping("/institution")
 public class InstitutionController {
 
-    private final InstitutionRepository institutionRepository;
+    private ManageInstitutionService manageInstitutionService;
 
-    public InstitutionController(InstitutionRepository institutionRepository) {
-        this.institutionRepository = institutionRepository;
+    public InstitutionController(ManageInstitutionService manageInstitutionService) {
+        this.manageInstitutionService = manageInstitutionService;
     }
 
     @GetMapping("/search")
@@ -28,7 +29,7 @@ public class InstitutionController {
     @PostMapping("/search")
     public String search(Model model, String keyword) {
         model.addAttribute("keyword",keyword);
-        List<Institution> list= institutionRepository.findAllByAddressContains(keyword);
+        List<Institution> list= manageInstitutionService.search(keyword);
         model.addAttribute("list", list);
         return "endUser/rental-apply/institutionSearchResult";
     }
